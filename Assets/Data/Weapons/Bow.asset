@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867b19482b337844f9b5c2e623be9b2e, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  prefab: {fileID: 919132149155446097, guid: 510a70b6f0153c24a9cca4be3d9b5c8d, type: 3}
+  attackCooldown: 2
+  attackRange: 8
+  damage: 7
+  attackAnimationType: 4
+  moveAnimationType: 6
+  idleAnimationType: 8
+  effects:
+  - {fileID: 11400000, guid: a32bf2adab05a2c48a52eefe3c6fc684, type: 2}

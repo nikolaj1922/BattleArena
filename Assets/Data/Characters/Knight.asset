@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ab05e5eed64724e982810644db917b, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterName: Aldric
+  health: 120
+  moveSpeed: 1.5
+  prefab: {fileID: 6474744086168779459, guid: 3b727a3386c29f948bf89db4481e7615, type: 3}
