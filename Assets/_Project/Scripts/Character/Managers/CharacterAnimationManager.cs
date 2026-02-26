@@ -21,6 +21,7 @@ namespace BattleArena.Characters.Managers
     [RequireComponent(typeof(Animator))]
     public class CharacterAnimationManager : MonoBehaviour
     {
+        private const float CROSS_FADE_DURATION = 0.2f;
         private Animator _anim;
         private Dictionary<CharacterAnimationType, int> _animationMap;
 
@@ -28,7 +29,7 @@ namespace BattleArena.Characters.Managers
         public void PlayAnimation(CharacterAnimationType animationType)
         {
             if (_animationMap.TryGetValue(animationType, out int hash))
-                _anim.CrossFade(hash, 0.2f, 0);
+                _anim.CrossFade(hash, CROSS_FADE_DURATION, 0);
         }
 
         private void Awake()
