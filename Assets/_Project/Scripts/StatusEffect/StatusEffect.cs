@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BattleArena.StatusEffects
 {
-    public abstract class StatusEffect : IStatusEffect
+    public abstract class StatusEffect
     {
         private readonly float _duration;
         private float _elapsedTime;
