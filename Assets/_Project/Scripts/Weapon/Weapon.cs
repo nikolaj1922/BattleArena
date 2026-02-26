@@ -5,32 +5,36 @@ namespace BattleArena.Weapons
 {
     public abstract class Weapon : MonoBehaviour, IWeapon
     {
-        protected Character character;
-        public WeaponData weaponData;
+        protected Character _character;
+        [field: SerializeField] public WeaponData Data { get; private set; }
 
-        public void SetOwnerCharacter(Character character) => this.character = character;
+        public void SetOwnerCharacter(Character character)
+        {
+            _character = character;
+        }
 
-        public void StartAttack() => character.AnimationManager.PlayAnimation(weaponData.attackAnimationType);
+        public void StartAttack() => _character.AnimationManager.PlayAnimation(Data.attackAnimationType);
 
         public abstract void ExecuteAttack();
 
         protected void CreateProjectile(Projectile projectile, Vector3 projectileStartPosition)
         {
-            Projectile projectileObject = Instantiate(projectile);
-            projectileObject.transform.SetPositionAndRotation(projectileStartPosition, Quaternion.identity);
+            Projectile projectileInstance = Instantiate(projectile);
+            projectileInstance.transform.SetPositionAndRotation(projectileStartPosition, Quaternion.identity);
 
-            Vector3 direction = character.AttackTarget.transform.position - character.transform.position;
-            projectile.Init(direction, weaponData.damage, character);
-            projectile.OnHit += TryToApplyEffects;
+            Vector3 direction = _character.AttackTarget.transform.position - _character.transform.position;
+
+            projectileInstance.Init(direction, Data.damage, _character);
+            projectileInstance.OnHit += TryToApplyEffects;
         }
 
         protected void TryToApplyEffects()
         {
-            Character target = character.AttackTarget;
+            Character target = _character.AttackTarget;
 
             if (target.CurrentHealth <= 0) return;
 
-            foreach (var effectData in weaponData.effects)
+            foreach (var effectData in Data.effects)
             {
                 if (CanApplyStatusEffect(effectData.chance))
                 {

@@ -28,15 +28,12 @@ namespace BattleArena.Managers
             _battleWinnerMenu.OnRestartClicked += RestartBattle;
         }
 
-        private void OnDestroy()
-        {
-            _battleWinnerMenu.OnRestartClicked -= RestartBattle;
-        }
+        private void OnDestroy() => _battleWinnerMenu.OnRestartClicked -= RestartBattle;
 
         public void RestartBattle()
         {
             foreach (var character in _inBattleCharacters)
-                Destroy(character);
+                Destroy(character.gameObject);
 
             _inBattleCharacters.Clear();
             _battleWinnerMenu.Hide();

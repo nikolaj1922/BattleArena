@@ -13,6 +13,12 @@ namespace BattleArena.UI
 
         private Character _character;
 
+        private void OnDestroy()
+        {
+            if (_character != null)
+                _character.OnHealthChanged -= UpdateHealth;
+        }
+
         public void Bind(Character character)
         {
             _character = character;
@@ -22,11 +28,6 @@ namespace BattleArena.UI
             UpdateHealth(character.CharacterData.health, character.CharacterData.health);
         }
 
-        private void OnDestroy()
-        {
-            if (_character != null)
-                _character.OnHealthChanged -= UpdateHealth;
-        }
 
         private void UpdateHealth(float current, float maxHealth)
         {

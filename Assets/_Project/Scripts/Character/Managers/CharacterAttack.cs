@@ -32,13 +32,13 @@ namespace BattleArena.Characters.Managers
                 _character.AttackTarget.transform.position
             );
 
-            if (targetDistance > _character.Weapon.weaponData.attackRange)
+            if (targetDistance > _character.Weapon.Data.attackRange)
             {
                 _character.StateManager.ChangeState(_character.StateManager.MoveState);
                 return;
             }
 
-            bool isAttackCooldownAvailable = (Time.time - _lastTimeAttack) > _character.Weapon.weaponData.attackCooldown;
+            bool isAttackCooldownAvailable = (Time.time - _lastTimeAttack) > _character.Weapon.Data.attackCooldown;
 
             if (_attackBlockCounter == 0 && isAttackCooldownAvailable)
             {

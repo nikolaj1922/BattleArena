@@ -7,10 +7,11 @@ namespace BattleArena.UI
 {
     public class WinnerMenu : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _winnerName;
-        [SerializeField] private Button _restartButton;
-
         public event Action OnRestartClicked;
+
+        [SerializeField] private Button _restartButton;
+        [SerializeField] private TextMeshProUGUI _winnerName;
+
 
         private void Awake()
         {
@@ -25,6 +26,7 @@ namespace BattleArena.UI
             _winnerName.text = $"Winner is {winnerName}";
             gameObject.SetActive(true);
         }
+
         public void Hide()
         {
             _winnerName.text = null;

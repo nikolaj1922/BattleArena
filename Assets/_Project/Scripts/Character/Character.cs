@@ -14,6 +14,9 @@ namespace BattleArena.Characters
     [RequireComponent(typeof(CharacterLocomotion))]
     public class Character : MonoBehaviour
     {
+        public event Action<Character> OnDeath;
+        public event Action<float, float> OnHealthChanged;
+
         public Rigidbody Rb { get; private set; }
         public CharacterView ViewManager { get; private set; }
         public CharacterState StateManager { get; private set; }
@@ -33,10 +36,6 @@ namespace BattleArena.Characters
         [SerializeField] Transform weaponSlot;
         public Weapon Weapon { get; private set; }
         public Character AttackTarget { get; private set; }
-
-        public event Action<Character> OnDeath;
-        public event Action<float, float> OnHealthChanged;
-
 
         private void Awake()
         {

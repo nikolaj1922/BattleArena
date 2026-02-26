@@ -7,6 +7,7 @@ namespace BattleArena.StatusEffects.DamageModifier
     public class ReduceDamageEffect : StatusEffect, IDamageModifier
     {
         private readonly float _multiplier;
+
         public ReduceDamageEffect(float duration, float multiplier) : base(duration)
         {
             _multiplier = multiplier;

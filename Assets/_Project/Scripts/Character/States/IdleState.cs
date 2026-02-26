@@ -4,7 +4,7 @@ namespace BattleArena.Characters.States
     {
         public void Enter(Character character)
         {
-            character.AnimationManager.PlayAnimation(character.Weapon.weaponData.idleAnimationType);
+            character.AnimationManager.PlayAnimation(character.Weapon.Data.idleAnimationType);
         }
 
         public void Tick(Character character) { }

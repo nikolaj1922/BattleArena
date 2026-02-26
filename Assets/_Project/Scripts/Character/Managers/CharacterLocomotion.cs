@@ -16,8 +16,9 @@ namespace BattleArena.Characters.Managers
 
         public void MoveToTarget()
         {
-            _moveRoutine = StartCoroutine(MoveToTargetCoroutine(_character.AttackTarget.transform, _character.Weapon.weaponData.attackRange, _character.CharacterData.moveSpeed));
+            _moveRoutine = StartCoroutine(MoveToTargetCoroutine(_character.AttackTarget.transform, _character.Weapon.Data.attackRange, _character.CharacterData.moveSpeed));
         }
+
         public void StopMove()
         {
             if (_moveRoutine != null)

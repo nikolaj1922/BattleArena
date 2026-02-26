@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7511558181221131132}
   - component: {fileID: -4258733810621623737}
   m_Layer: 0
-  m_Name: Sword One Handed
+  m_Name: One Handed Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,4 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40debc3f08e23aa40b22ba6223b0c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSwordOneHanded
-  weaponData: {fileID: 11400000, guid: 23bef1ceabe4c1a4886f6095bebc6833, type: 2}
+  <Data>k__BackingField: {fileID: 11400000, guid: 23bef1ceabe4c1a4886f6095bebc6833, type: 2}

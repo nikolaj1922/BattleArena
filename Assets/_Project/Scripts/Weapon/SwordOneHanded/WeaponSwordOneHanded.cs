@@ -5,9 +5,9 @@ namespace BattleArena.Weapons
     {
         public override void ExecuteAttack()
         {
-            float finalDamage = character.AttackManager.GetFinalDamage(weaponData.damage);
+            float finalDamage = _character.AttackManager.GetFinalDamage(Data.damage);
 
-            character.AttackTarget.TakeDamage(finalDamage);
+            _character.AttackTarget.TakeDamage(finalDamage);
             TryToApplyEffects();
         }
     }

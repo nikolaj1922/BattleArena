@@ -5,9 +5,9 @@ namespace BattleArena.StatusEffects.Poison
 {
     public class PoisonEffect : StatusEffect
     {
+        private float _tickTimer;
         private readonly float _frequency;
         private readonly float _damage;
-        private float _tickTimer;
 
         public PoisonEffect(float duration, float damage, float frequency) : base(duration)
         {

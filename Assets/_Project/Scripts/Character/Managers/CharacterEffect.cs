@@ -8,11 +8,13 @@ namespace BattleArena.Characters.Managers
     [RequireComponent(typeof(Character))]
     public class CharacterEffect : MonoBehaviour
     {
-        private Character _character;
+        public event Action<StatusEffect> OnEffectAdded;
 
         [SerializeField] private List<StatusEffect> _activeEffects = new();
 
-        public event Action<StatusEffect> OnEffectAdded;
+        private Character _character;
+
+
 
         private void Awake()
         {

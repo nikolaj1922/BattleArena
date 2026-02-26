@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250018ab9672ee44bb30ef02fe2a1a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponBow
-  weaponData: {fileID: 11400000, guid: 028a8e034f4015349b9bd47f3163d19f, type: 2}
-  _projectileStartPosition: {fileID: -8679921383154817045}
+  <Data>k__BackingField: {fileID: 11400000, guid: 028a8e034f4015349b9bd47f3163d19f, type: 2}
   _projectilePrefab: {fileID: -3297610133330460747, guid: 8f68c006402877d45975f64a5e21e67d, type: 3}
+  _projectileStartPosition: {fileID: -8679921383154817045}
 --- !u!1 &2884493970829877252
 GameObject:
   m_ObjectHideFlags: 0
