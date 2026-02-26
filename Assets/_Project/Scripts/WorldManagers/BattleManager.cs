@@ -25,7 +25,12 @@ namespace BattleArena.Managers
         private void Start()
         {
             StartBattle();
-            _battleWinnerMenu.OnResetClicked += RestartBattle;
+            _battleWinnerMenu.OnRestartClicked += RestartBattle;
+        }
+
+        private void OnDestroy()
+        {
+            _battleWinnerMenu.OnRestartClicked -= RestartBattle;
         }
 
         public void RestartBattle()
