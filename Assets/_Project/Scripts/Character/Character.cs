@@ -34,7 +34,7 @@ namespace BattleArena.Characters
         public Weapon Weapon { get; private set; }
         public Character AttackTarget { get; private set; }
 
-        public event Action OnDeath;
+        public event Action<Character> OnDeath;
         public event Action<float, float> OnHealthChanged;
 
 
@@ -94,11 +94,11 @@ namespace BattleArena.Characters
             ViewManager.ShowFloatingText(damage.ToString("0"), Color.white);
 
             if (CurrentHealth <= 0)
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(this);
 
         }
 
-        private void HandleDeath()
+        private void HandleDeath(Character character)
         {
             StateManager.ChangeState(StateManager.DeathState);
             EffectManager.ClearEffects();

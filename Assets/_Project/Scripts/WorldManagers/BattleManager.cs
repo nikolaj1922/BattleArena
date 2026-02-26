@@ -47,7 +47,15 @@ namespace BattleArena.Managers
         private void RegisterCharacter(Character character)
         {
             _inBattleCharacters.Add(character.gameObject);
-            character.OnDeath += () => OnCharacterDeath(character.AttackTarget.CharacterData.characterName);
+            character.OnDeath += HandleCharacterDeath;
+        }
+
+        private void HandleCharacterDeath(Character deadCharacter)
+        {
+            deadCharacter.OnDeath -= HandleCharacterDeath;
+
+            string winnerName = deadCharacter.AttackTarget.CharacterData.characterName;
+            _battleWinnerMenu.Show(winnerName);
         }
 
         private void StartBattle()
@@ -68,8 +76,6 @@ namespace BattleArena.Managers
                 Debug.LogError("Characters are undefined!");
             }
         }
-
-        private void OnCharacterDeath(string winnerName) => _battleWinnerMenu.Show(winnerName);
 
         private Character CreateCharacter(Vector3 spawnPosition)
         {
