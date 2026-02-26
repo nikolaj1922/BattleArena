@@ -7,7 +7,7 @@ using BattleArena.Interfaces;
 namespace BattleArena.Characters.Managers
 {
     [RequireComponent(typeof(Character))]
-    public class CharacterAttackManager : MonoBehaviour
+    public class CharacterAttack : MonoBehaviour
     {
         private Character _character;
         private int _attackBlockCounter = 0;
@@ -42,7 +42,7 @@ namespace BattleArena.Characters.Managers
 
             if (_attackBlockCounter == 0 && isAttackCooldownAvailable)
             {
-                IncreaseBlockCounter(); ;
+                IncreaseBlockCounter();
                 _lastTimeAttack = Time.time;
 
                 _character.Weapon.StartAttack();

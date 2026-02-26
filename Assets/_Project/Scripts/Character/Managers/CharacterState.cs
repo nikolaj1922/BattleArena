@@ -4,7 +4,7 @@ using BattleArena.Characters.States;
 namespace BattleArena.Characters.Managers
 {
     [RequireComponent(typeof(Character))]
-    public class CharacterStateManager : MonoBehaviour
+    public class CharacterState : MonoBehaviour
     {
         private Character _character;
 

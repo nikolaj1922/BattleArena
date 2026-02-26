@@ -4,7 +4,7 @@ using System.Collections;
 namespace BattleArena.Characters.Managers
 {
     [RequireComponent(typeof(Character))]
-    public class CharacterLocomotionManager : MonoBehaviour
+    public class CharacterLocomotion : MonoBehaviour
     {
         private Character _character;
         private Coroutine _moveRoutine;

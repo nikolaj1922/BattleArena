@@ -19,7 +19,7 @@ namespace BattleArena.Characters.Managers
     }
 
     [RequireComponent(typeof(Animator))]
-    public class CharacterAnimationManager : MonoBehaviour
+    public class CharacterAnimation : MonoBehaviour
     {
         private const float CROSS_FADE_DURATION = 0.2f;
         private Animator _anim;

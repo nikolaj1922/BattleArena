@@ -26,11 +26,11 @@
 
 Композиционный объект, содержащий менеджеры:
 
-- `CharacterStateManager`  
-- `CharacterAttackManager`  
-- `CharacterLocomotionManager`  
-- `CharacterEffectManager`  
-- `CharacterAnimationManager`  
+- `CharacterState`  
+- `CharacterAttack`  
+- `CharacterLocomotion`  
+- `CharacterEffect`  
+- `CharacterAnimation`  
 
 Персонаж:
 

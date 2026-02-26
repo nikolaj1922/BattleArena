@@ -5,7 +5,7 @@ using BattleArena.StatusEffects;
 namespace BattleArena.Characters.Managers
 {
     [RequireComponent(typeof(Character))]
-    public class CharacterEffectManager : MonoBehaviour
+    public class CharacterEffect : MonoBehaviour
     {
         private Character _character;
 

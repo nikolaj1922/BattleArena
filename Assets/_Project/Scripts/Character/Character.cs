@@ -6,21 +6,21 @@ using BattleArena.Weapons;
 namespace BattleArena.Characters
 {
     [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(CharacterViewManager))]
-    [RequireComponent(typeof(CharacterStateManager))]
-    [RequireComponent(typeof(CharacterAttackManager))]
-    [RequireComponent(typeof(CharacterEffectManager))]
-    [RequireComponent(typeof(CharacterAnimationManager))]
-    [RequireComponent(typeof(CharacterLocomotionManager))]
+    [RequireComponent(typeof(CharacterView))]
+    [RequireComponent(typeof(CharacterState))]
+    [RequireComponent(typeof(CharacterAttack))]
+    [RequireComponent(typeof(CharacterEffect))]
+    [RequireComponent(typeof(CharacterAnimation))]
+    [RequireComponent(typeof(CharacterLocomotion))]
     public class Character : MonoBehaviour
     {
         public Rigidbody Rb { get; private set; }
-        public CharacterViewManager ViewManager { get; private set; }
-        public CharacterStateManager StateManager { get; private set; }
-        public CharacterEffectManager EffectManager { get; private set; }
-        public CharacterAttackManager AttackManager { get; private set; }
-        public CharacterAnimationManager AnimationManager { get; private set; }
-        public CharacterLocomotionManager LocomotionManager { get; private set; }
+        public CharacterView ViewManager { get; private set; }
+        public CharacterState StateManager { get; private set; }
+        public CharacterEffect EffectManager { get; private set; }
+        public CharacterAttack AttackManager { get; private set; }
+        public CharacterAnimation AnimationManager { get; private set; }
+        public CharacterLocomotion LocomotionManager { get; private set; }
 
 
         [Header("Character data")]
@@ -41,12 +41,12 @@ namespace BattleArena.Characters
         private void Awake()
         {
             Rb = GetComponent<Rigidbody>();
-            ViewManager = GetComponent<CharacterViewManager>();
-            StateManager = GetComponent<CharacterStateManager>();
-            AttackManager = GetComponent<CharacterAttackManager>();
-            EffectManager = GetComponent<CharacterEffectManager>();
-            AnimationManager = GetComponent<CharacterAnimationManager>();
-            LocomotionManager = GetComponent<CharacterLocomotionManager>();
+            ViewManager = GetComponent<CharacterView>();
+            StateManager = GetComponent<CharacterState>();
+            AttackManager = GetComponent<CharacterAttack>();
+            EffectManager = GetComponent<CharacterEffect>();
+            AnimationManager = GetComponent<CharacterAnimation>();
+            LocomotionManager = GetComponent<CharacterLocomotion>();
 
             OnDeath += HandleDeath;
         }
