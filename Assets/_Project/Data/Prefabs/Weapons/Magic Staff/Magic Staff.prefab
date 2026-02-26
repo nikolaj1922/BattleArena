@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponMagicStaff
   weaponData: {fileID: 11400000, guid: 4c3a12fdd76df6340addef55aecb5d0b, type: 2}
   _projectileStartPosition: {fileID: 9106595883779393979}
-  _projectilePrefab: {fileID: 8729771439938731584, guid: 5a81273f0762e7842a8488a672a7ec47, type: 3}
+  _projectilePrefab: {fileID: -5201339458610502896, guid: 5a81273f0762e7842a8488a672a7ec47, type: 3}
 --- !u!1 &8598118541683511084
 GameObject:
   m_ObjectHideFlags: 0

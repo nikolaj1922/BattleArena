@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterViewManager
   floatTextStartPos: {fileID: 5433981194211349404}
-  floatTextPrefab: {fileID: 5257765883656630970, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}
+  floatTextPrefab: {fileID: 6496643416734674080, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}
   <HealthBar>k__BackingField: {fileID: 1381969446593316048}
 --- !u!1 &2088127673469472721
 GameObject:

@@ -14,13 +14,10 @@ namespace BattleArena.Weapons
 
         public abstract void ExecuteAttack();
 
-        protected void CreateProjectile(GameObject projectilePrefab, Vector3 projectileStartPosition)
+        protected void CreateProjectile(Projectile projectile, Vector3 projectileStartPosition)
         {
-            GameObject projectileObject = Instantiate(projectilePrefab);
+            Projectile projectileObject = Instantiate(projectile);
             projectileObject.transform.SetPositionAndRotation(projectileStartPosition, Quaternion.identity);
-
-            if (!projectileObject.TryGetComponent(out Projectile projectile))
-                return;
 
             Vector3 direction = character.AttackTarget.transform.position - character.transform.position;
             projectile.Init(direction, weaponData.damage, character);

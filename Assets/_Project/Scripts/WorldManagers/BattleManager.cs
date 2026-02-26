@@ -20,7 +20,7 @@ namespace BattleArena.Managers
         [Header("Winner menu")]
         [SerializeField] private WinnerMenu _battleWinnerMenu;
 
-        private readonly List<GameObject> _inBattleCharacters = new();
+        private readonly List<Character> _inBattleCharacters = new();
 
         private void Start()
         {
@@ -46,7 +46,7 @@ namespace BattleArena.Managers
 
         private void RegisterCharacter(Character character)
         {
-            _inBattleCharacters.Add(character.gameObject);
+            _inBattleCharacters.Add(character);
             character.OnDeath += HandleCharacterDeath;
         }
 
@@ -88,16 +88,10 @@ namespace BattleArena.Managers
 
         private Character SpawnCharacter(CharacterData characterData, WeaponData weaponData, Vector3 spawnPosition)
         {
-            GameObject characterObject = Instantiate(characterData.prefab, spawnPosition, Quaternion.identity);
-            GameObject weaponObject = Instantiate(weaponData.prefab);
+            Character character = Instantiate(characterData.character, spawnPosition, Quaternion.identity);
+            Weapon weapon = Instantiate(weaponData.weapon);
 
-            if (!characterObject.TryGetComponent(out Character character))
-            {
-                Debug.LogError("Character component not found!");
-                return null;
-            }
-
-            character.SetWeapon(weaponObject);
+            character.SetWeapon(weapon);
             character.Init(characterData);
 
             return character;

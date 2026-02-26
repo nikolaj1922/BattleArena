@@ -71,16 +71,10 @@ namespace BattleArena.Characters
             StateManager.ChangeState(StateManager.MoveState);
         }
 
-        public void SetWeapon(GameObject weaponObject)
+        public void SetWeapon(Weapon weapon)
         {
-            if (!weaponObject.TryGetComponent(out Weapon weapon))
-            {
-                Debug.LogError("Object is not weapon!");
-                return;
-            }
-
-            weaponObject.transform.SetParent(weaponSlot);
-            weaponObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            weapon.transform.SetParent(weaponSlot);
+            weapon.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             Weapon = weapon;
             weapon.SetOwnerCharacter(this);
         }

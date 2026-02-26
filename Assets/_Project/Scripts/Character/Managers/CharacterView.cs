@@ -1,4 +1,5 @@
 using BattleArena.UI;
+using TMPro;
 using UnityEngine;
 
 namespace BattleArena.Characters.Managers
@@ -7,12 +8,12 @@ namespace BattleArena.Characters.Managers
     {
         [Header("Float text")]
         [SerializeField] private Transform floatTextStartPos;
-        [SerializeField] private GameObject floatTextPrefab;
+        [SerializeField] private Canvas floatTextPrefab;
         [field: SerializeField] public HealthBar HealthBar { get; private set; }
 
         public void ShowFloatingText(string text, Color color)
         {
-            GameObject canvasObj = Instantiate(floatTextPrefab, floatTextStartPos);
+            Canvas canvasObj = Instantiate(floatTextPrefab, floatTextStartPos);
             canvasObj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             canvasObj.GetComponent<FloatingTextCanvas>().Init(text, color);
         }

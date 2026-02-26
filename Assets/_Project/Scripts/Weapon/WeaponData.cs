@@ -8,7 +8,7 @@ namespace BattleArena.Weapons
     [CreateAssetMenu(menuName = "Weapon")]
     public class WeaponData : ScriptableObject
     {
-        public GameObject prefab;
+        public Weapon weapon;
         public float attackCooldown;
         public float attackRange;
         public float damage;
