@@ -34,7 +34,8 @@ namespace BattleArena.Characters
         public Weapon Weapon { get; private set; }
         public Character AttackTarget { get; private set; }
 
-        public Action OnDeath;
+        public event Action OnDeath;
+        public event Action<float, float> OnHealthChanged;
 
 
         private void Awake()
@@ -47,8 +48,7 @@ namespace BattleArena.Characters
             AnimationManager = GetComponent<CharacterAnimationManager>();
             LocomotionManager = GetComponent<CharacterLocomotionManager>();
 
-            OnDeath += () => StateManager.ChangeState(StateManager.DeathState);
-            OnDeath += () => EffectManager.ClearEffects();
+            OnDeath += HandleDeath;
         }
 
         private void Update() => StateManager.CurrentState.Tick(this);
@@ -90,12 +90,18 @@ namespace BattleArena.Characters
             float newHealth = CurrentHealth - damage;
 
             CurrentHealth = Mathf.Max(0, newHealth);
-            ViewManager.OnHealthChanged?.Invoke(CurrentHealth, CharacterData.health);
+            OnHealthChanged?.Invoke(CurrentHealth, CharacterData.health);
             ViewManager.ShowFloatingText(damage.ToString("0"), Color.white);
 
             if (CurrentHealth <= 0)
                 OnDeath?.Invoke();
 
+        }
+
+        private void HandleDeath()
+        {
+            StateManager.ChangeState(StateManager.DeathState);
+            EffectManager.ClearEffects();
         }
     }
 

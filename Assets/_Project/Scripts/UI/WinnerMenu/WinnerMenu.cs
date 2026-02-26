@@ -10,7 +10,7 @@ namespace BattleArena.UI
         [SerializeField] private TextMeshProUGUI _winnerName;
         [SerializeField] private Button _restartButton;
 
-        public Action OnRestartClicked;
+        public event Action OnRestartClicked;
 
         private void Awake()
         {

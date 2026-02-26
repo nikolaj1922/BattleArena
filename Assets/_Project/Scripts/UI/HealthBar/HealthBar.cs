@@ -17,7 +17,7 @@ namespace BattleArena.UI
         {
             _character = character;
 
-            character.ViewManager.OnHealthChanged += UpdateHealth;
+            character.OnHealthChanged += UpdateHealth;
             _maxHealthText.text = $"/{character.CharacterData.health}";
             UpdateHealth(character.CharacterData.health, character.CharacterData.health);
         }
@@ -25,7 +25,7 @@ namespace BattleArena.UI
         private void OnDestroy()
         {
             if (_character != null)
-                _character.ViewManager.OnHealthChanged -= UpdateHealth;
+                _character.OnHealthChanged -= UpdateHealth;
         }
 
         private void UpdateHealth(float current, float maxHealth)

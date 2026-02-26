@@ -12,7 +12,7 @@ namespace BattleArena.Weapons
         private float _damage;
         private Character _owner;
 
-        public Action OnHit;
+        public event Action OnHit;
 
         public void Init(Vector3 direction, float damage, Character attacker)
         {

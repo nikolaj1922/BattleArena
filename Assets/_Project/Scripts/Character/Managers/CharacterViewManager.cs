@@ -1,4 +1,3 @@
-using System;
 using BattleArena.UI;
 using UnityEngine;
 
@@ -10,8 +9,6 @@ namespace BattleArena.Characters.Managers
         [SerializeField] private Transform floatTextStartPos;
         [SerializeField] private GameObject floatTextPrefab;
         [field: SerializeField] public HealthBar HealthBar { get; private set; }
-
-        public Action<float, float> OnHealthChanged;
 
         public void ShowFloatingText(string text, Color color)
         {
