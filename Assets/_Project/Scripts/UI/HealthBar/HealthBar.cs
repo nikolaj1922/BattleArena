@@ -11,7 +11,6 @@ namespace BattleArena.UI
         [SerializeField] private TextMeshProUGUI _maxHealthText;
         [SerializeField] private TextMeshProUGUI _currentHealthText;
 
-
         private Character _character;
 
         public void Bind(Character character)

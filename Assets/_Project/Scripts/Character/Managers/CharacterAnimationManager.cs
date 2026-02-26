@@ -25,7 +25,6 @@ namespace BattleArena.Characters.Managers
         private Animator _anim;
         private Dictionary<CharacterAnimationType, int> _animationMap;
 
-
         public void PlayAnimation(CharacterAnimationType animationType)
         {
             if (_animationMap.TryGetValue(animationType, out int hash))

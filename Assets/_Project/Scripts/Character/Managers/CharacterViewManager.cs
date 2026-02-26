@@ -9,8 +9,7 @@ namespace BattleArena.Characters.Managers
         [Header("Float text")]
         [SerializeField] private Transform floatTextStartPos;
         [SerializeField] private GameObject floatTextPrefab;
-        [SerializeField] private HealthBar healthBar;
-        public HealthBar HealthBar => healthBar;
+        [field: SerializeField] public HealthBar HealthBar { get; private set; }
 
         public Action<float, float> OnHealthChanged;
 
