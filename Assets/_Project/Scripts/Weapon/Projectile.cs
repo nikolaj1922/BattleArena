@@ -24,7 +24,7 @@ namespace BattleArena.Weapons
 
             if (target != null && target != _owner)
             {
-                target.TakeDamage(_owner.AttackManager.GetFinalDamage(_damage));
+                target.TakeDamage(_owner.Attack.GetFinalDamage(_damage));
                 OnHit?.Invoke();
                 Destroy(gameObject);
             }

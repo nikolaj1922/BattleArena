@@ -5,7 +5,7 @@ namespace BattleArena.Characters.States
         public void Enter(Character character) { }
         public void Tick(Character character)
         {
-            character.AttackManager.PerformAttack();
+            character.Attack.PerformAttack();
         }
         public void Exit(Character character) { }
 

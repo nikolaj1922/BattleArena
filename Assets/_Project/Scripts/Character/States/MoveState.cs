@@ -12,14 +12,14 @@ namespace BattleArena.Characters.States
                 return;
             }
 
-            character.AnimationManager.PlayAnimation(character.Weapon.Data.moveAnimationType);
-            character.LocomotionManager.MoveToTarget();
+            character.Animation.PlayAnimation(character.Weapon.Data.moveAnimationType);
+            character.Locomotion.MoveToTarget();
         }
         public void Tick(Character character) { }
         public void Exit(Character character)
         {
-            character.LocomotionManager.StopMove();
-            character.AnimationManager.PlayAnimation(character.Weapon.Data.idleAnimationType);
+            character.Locomotion.StopMove();
+            character.Animation.PlayAnimation(character.Weapon.Data.idleAnimationType);
         }
     }
 }

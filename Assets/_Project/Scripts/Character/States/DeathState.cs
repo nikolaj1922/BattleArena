@@ -6,7 +6,7 @@ namespace BattleArena.Characters.States
     {
         public void Enter(Character character)
         {
-            character.AnimationManager.PlayAnimation(CharacterAnimationType.Death);
+            character.Animation.PlayAnimation(CharacterAnimationType.Death);
         }
         public void Tick(Character character) { }
         public void Exit(Character character) { }

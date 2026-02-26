@@ -48,7 +48,7 @@ namespace BattleArena.Characters.Managers
                 yield return null;
             }
 
-            _character.StateManager.ChangeState(_character.StateManager.AttackState);
+            _character.State.ChangeState(_character.State.AttackState);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace BattleArena.Characters.Managers
         {
             if (_character.AttackTarget.CurrentHealth <= 0)
             {
-                _character.StateManager.ChangeState(_character.StateManager.IdleState);
+                _character.State.ChangeState(_character.State.IdleState);
                 return;
             }
 
@@ -34,7 +34,7 @@ namespace BattleArena.Characters.Managers
 
             if (targetDistance > _character.Weapon.Data.attackRange)
             {
-                _character.StateManager.ChangeState(_character.StateManager.MoveState);
+                _character.State.ChangeState(_character.State.MoveState);
                 return;
             }
 

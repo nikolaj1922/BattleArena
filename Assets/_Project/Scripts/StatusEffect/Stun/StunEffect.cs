@@ -14,12 +14,12 @@ namespace BattleArena.StatusEffects.Stun
 
         public override void OnAdd(Character target)
         {
-            target.AttackManager.IncreaseBlockCounter();
+            target.Attack.IncreaseBlockCounter();
         }
 
         public override void OnRemove(Character target)
         {
-            target.AttackManager.DecreaseBlockCounter();
+            target.Attack.DecreaseBlockCounter();
         }
     }
 }

@@ -6,6 +6,6 @@ public class ResetFlagsOnAttackEnd : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Character character = animator.GetComponent<Character>();
-        character.AttackManager.DecreaseBlockCounter();
+        character.Attack.DecreaseBlockCounter();
     }
 }

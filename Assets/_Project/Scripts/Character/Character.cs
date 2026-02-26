@@ -18,12 +18,12 @@ namespace BattleArena.Characters
         public event Action<float, float> OnHealthChanged;
 
         public Rigidbody Rb { get; private set; }
-        public CharacterView ViewManager { get; private set; }
-        public CharacterState StateManager { get; private set; }
-        public CharacterEffect EffectManager { get; private set; }
-        public CharacterAttack AttackManager { get; private set; }
-        public CharacterAnimation AnimationManager { get; private set; }
-        public CharacterLocomotion LocomotionManager { get; private set; }
+        public CharacterView View { get; private set; }
+        public CharacterState State { get; private set; }
+        public CharacterEffect Effects { get; private set; }
+        public CharacterAttack Attack { get; private set; }
+        public CharacterAnimation Animation { get; private set; }
+        public CharacterLocomotion Locomotion { get; private set; }
 
 
         [Header("Character data")]
@@ -40,34 +40,34 @@ namespace BattleArena.Characters
         private void Awake()
         {
             Rb = GetComponent<Rigidbody>();
-            ViewManager = GetComponent<CharacterView>();
-            StateManager = GetComponent<CharacterState>();
-            AttackManager = GetComponent<CharacterAttack>();
-            EffectManager = GetComponent<CharacterEffect>();
-            AnimationManager = GetComponent<CharacterAnimation>();
-            LocomotionManager = GetComponent<CharacterLocomotion>();
+            View = GetComponent<CharacterView>();
+            State = GetComponent<CharacterState>();
+            Attack = GetComponent<CharacterAttack>();
+            Effects = GetComponent<CharacterEffect>();
+            Animation = GetComponent<CharacterAnimation>();
+            Locomotion = GetComponent<CharacterLocomotion>();
 
             OnDeath += HandleDeath;
         }
 
-        private void Update() => StateManager.CurrentState.Tick(this);
+        private void Update() => State.CurrentState.Tick(this);
 
         public virtual void Init(CharacterData characterData)
         {
-            StateManager.InitStates();
+            State.InitStates();
 
             CharacterData = characterData;
             CurrentHealth = characterData.health;
 
-            StateManager.ChangeState(StateManager.IdleState);
+            State.ChangeState(State.IdleState);
 
-            ViewManager.HealthBar.Bind(this);
+            View.HealthBar.Bind(this);
         }
 
         public void SetTarget(Character targetCharacter)
         {
             AttackTarget = targetCharacter;
-            StateManager.ChangeState(StateManager.MoveState);
+            State.ChangeState(State.MoveState);
         }
 
         public void SetWeapon(Weapon weapon)
@@ -84,7 +84,7 @@ namespace BattleArena.Characters
 
             CurrentHealth = Mathf.Max(0, newHealth);
             OnHealthChanged?.Invoke(CurrentHealth, CharacterData.health);
-            ViewManager.ShowFloatingText(damage.ToString("0"), Color.white);
+            View.ShowFloatingText(damage.ToString("0"), Color.white);
 
             if (CurrentHealth <= 0)
                 OnDeath?.Invoke(this);
@@ -93,8 +93,8 @@ namespace BattleArena.Characters
 
         private void HandleDeath(Character character)
         {
-            StateManager.ChangeState(StateManager.DeathState);
-            EffectManager.ClearEffects();
+            State.ChangeState(State.DeathState);
+            Effects.ClearEffects();
         }
     }
 

@@ -5,7 +5,7 @@ namespace BattleArena.Weapons
     {
         public override void ExecuteAttack()
         {
-            float finalDamage = _character.AttackManager.GetFinalDamage(Data.damage);
+            float finalDamage = _character.Attack.GetFinalDamage(Data.damage);
 
             _character.AttackTarget.TakeDamage(finalDamage);
             TryToApplyEffects();

@@ -21,10 +21,10 @@ namespace BattleArena.StatusEffects.DamageModifier
 
         public override void OnAdd(Character target)
         {
-            target.AttackManager.AddDamageModifier(this);
+            target.Attack.AddDamageModifier(this);
         }
 
-        public override void OnRemove(Character target) => target.AttackManager.RemoveDamageModifier(this);
+        public override void OnRemove(Character target) => target.Attack.RemoveDamageModifier(this);
 
     }
 }

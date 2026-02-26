@@ -13,7 +13,7 @@ namespace BattleArena.Weapons
             _character = character;
         }
 
-        public void StartAttack() => _character.AnimationManager.PlayAnimation(Data.attackAnimationType);
+        public void StartAttack() => _character.Animation.PlayAnimation(Data.attackAnimationType);
 
         public abstract void ExecuteAttack();
 
@@ -39,7 +39,7 @@ namespace BattleArena.Weapons
                 if (CanApplyStatusEffect(effectData.chance))
                 {
                     var effect = effectData.CreateEffect();
-                    target.EffectManager.AddEffect(effect);
+                    target.Effects.AddEffect(effect);
                 }
             }
         }
