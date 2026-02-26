@@ -15,10 +15,11 @@ namespace BattleArena.StatusEffects.Poison
             _frequency = frequency;
         }
 
-        public override void OnAdd(Character target)
-        {
-            target.ViewManager.ShowFloatingText("Poison!", Color.lightGreen);
-        }
+        public override string DisplayName => "Poison!";
+
+        public override Color DisplayColor => Color.green;
+
+        public override void OnAdd(Character target) { }
 
         public override void OnRemove(Character target) { }
 

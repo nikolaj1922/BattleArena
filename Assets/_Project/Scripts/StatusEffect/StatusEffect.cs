@@ -5,6 +5,9 @@ namespace BattleArena.StatusEffects
 {
     public abstract class StatusEffect
     {
+        public abstract string DisplayName { get; }
+        public abstract Color DisplayColor { get; }
+
         private readonly float _duration;
         private float _elapsedTime;
 

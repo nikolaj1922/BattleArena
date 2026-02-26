@@ -12,11 +12,14 @@ namespace BattleArena.StatusEffects.DamageModifier
             _multiplier = multiplier;
         }
 
+        public override string DisplayName => "Weakness!";
+
+        public override Color DisplayColor => Color.lightPink;
+
         public float Modify(float baseDamage) => baseDamage * _multiplier;
 
         public override void OnAdd(Character target)
         {
-            target.ViewManager.ShowFloatingText("Weakness!", Color.lightPink);
             target.AttackManager.AddDamageModifier(this);
         }
 

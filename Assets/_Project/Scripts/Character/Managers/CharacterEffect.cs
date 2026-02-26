@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using BattleArena.StatusEffects;
@@ -9,7 +10,9 @@ namespace BattleArena.Characters.Managers
     {
         private Character _character;
 
-        [SerializeField] List<StatusEffect> _activeEffects = new();
+        [SerializeField] private List<StatusEffect> _activeEffects = new();
+
+        public event Action<StatusEffect> OnEffectAdded;
 
         private void Awake()
         {
@@ -31,6 +34,8 @@ namespace BattleArena.Characters.Managers
 
             newEffect.OnAdd(_character);
             _activeEffects.Add(newEffect);
+
+            OnEffectAdded?.Invoke(newEffect);
         }
 
         public void ClearEffects() => _activeEffects.Clear();
@@ -49,7 +54,6 @@ namespace BattleArena.Characters.Managers
                 }
             }
         }
-
     }
 }
 
