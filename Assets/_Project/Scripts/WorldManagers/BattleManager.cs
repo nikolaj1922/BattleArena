@@ -22,7 +22,11 @@ namespace BattleArena.Managers
 
         private readonly List<GameObject> _inBattleCharacters = new();
 
-        private void Start() => StartBattle();
+        private void Start()
+        {
+            StartBattle();
+            _battleWinnerMenu.OnResetClicked += RestartBattle;
+        }
 
         public void RestartBattle()
         {
@@ -89,7 +93,6 @@ namespace BattleArena.Managers
         }
 
         private int GetRandomCharacterIndex() => Random.Range(0, _characters.Length);
-
     }
 }
 
