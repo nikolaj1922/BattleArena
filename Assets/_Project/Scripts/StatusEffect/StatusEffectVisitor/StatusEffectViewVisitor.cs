@@ -8,7 +8,7 @@ namespace BattleArena.StatusEffects.Visitors
 {
     public class StatusEffectViewVisitor : IStatusEffectVisitor
     {
-        private CharacterView _characterView;
+        private readonly CharacterView _characterView;
 
         public StatusEffectViewVisitor(CharacterView characterView)
         {

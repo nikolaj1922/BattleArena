@@ -11,10 +11,7 @@ namespace BattleArena.Characters.Managers
         public event Action<StatusEffect> OnEffectAdded;
 
         [SerializeField] private List<StatusEffect> _activeEffects = new();
-
         private Character _character;
-
-
 
         private void Awake()
         {

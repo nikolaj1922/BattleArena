@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace BattleArena.StatusEffects.DamageModifier
 {
-
     [CreateAssetMenu(menuName = "Effects/Damage Modifier")]
     public class ReduceDamageEffectData : EffectData
     {

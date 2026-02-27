@@ -1374,7 +1374,6 @@ GameObject:
   - component: {fileID: 5820171462632608901}
   - component: {fileID: 3269951414699192601}
   - component: {fileID: 7090953349983613300}
-  - component: {fileID: 4358793736997651424}
   - component: {fileID: 8448196129045291612}
   - component: {fileID: 2369170974794995149}
   - component: {fileID: 8774609922490757530}
@@ -1509,18 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e635cbb463b3a40a5d37dd484b3f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationManager
---- !u!114 &4358793736997651424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474744086168779459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059f35aa0f244fa40a44da61e420450a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateManager
 --- !u!114 &8448196129045291612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc253bab7b87e488915410aa4043d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
-  weaponSlot: {fileID: 526816767166946916}
+  _weaponSlot: {fileID: 526816767166946916}
 --- !u!114 &4764390511786864356
 MonoBehaviour:
   m_ObjectHideFlags: 0

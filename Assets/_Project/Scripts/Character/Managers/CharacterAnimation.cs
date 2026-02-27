@@ -25,17 +25,17 @@ namespace BattleArena.Characters.Managers
         private Animator _anim;
         private Dictionary<CharacterAnimationType, int> _animationMap;
 
-        public void PlayAnimation(CharacterAnimationType animationType)
-        {
-            if (_animationMap.TryGetValue(animationType, out int hash))
-                _anim.CrossFade(hash, CROSS_FADE_DURATION, 0);
-        }
-
         private void Awake()
         {
             _anim = GetComponent<Animator>();
 
             CreateAnimationDictionary();
+        }
+
+        public void PlayAnimation(CharacterAnimationType animationType)
+        {
+            if (_animationMap.TryGetValue(animationType, out int hash))
+                _anim.CrossFade(hash, CROSS_FADE_DURATION, 0);
         }
 
         private void CreateAnimationDictionary()
@@ -59,6 +59,5 @@ namespace BattleArena.Characters.Managers
             { CharacterAnimationType.Death, Animator.StringToHash("Death") },
         };
         }
-
     }
 }

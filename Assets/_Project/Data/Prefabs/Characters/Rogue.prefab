@@ -491,7 +491,6 @@ GameObject:
   - component: {fileID: 6151501246964281662}
   - component: {fileID: 4895909290703182491}
   - component: {fileID: 5563196888804036289}
-  - component: {fileID: 2961491011658474200}
   - component: {fileID: 405457143362465900}
   - component: {fileID: 5375709652331695195}
   - component: {fileID: 8408338833875465652}
@@ -625,18 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e936e85dd9208ee4d8ca7f6e0dfccf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterLocomotionManager
---- !u!114 &2961491011658474200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979897433614077911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059f35aa0f244fa40a44da61e420450a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateManager
 --- !u!114 &405457143362465900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc253bab7b87e488915410aa4043d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
-  weaponSlot: {fileID: 9116110029719368462}
+  _weaponSlot: {fileID: 9116110029719368462}
 --- !u!114 &7154404719684485879
 MonoBehaviour:
   m_ObjectHideFlags: 0

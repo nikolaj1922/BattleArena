@@ -22,10 +22,7 @@ namespace BattleArena.Characters.Managers
         public void PerformAttack()
         {
             if (_character.AttackTarget.CurrentHealth <= 0)
-            {
-                _character.State.ChangeState(_character.State.IdleState);
                 return;
-            }
 
             float targetDistance = Vector3.Distance(
                 _character.transform.position,
@@ -33,10 +30,7 @@ namespace BattleArena.Characters.Managers
             );
 
             if (targetDistance > _character.Weapon.Data.attackRange)
-            {
-                _character.State.ChangeState(_character.State.MoveState);
                 return;
-            }
 
             bool isAttackCooldownAvailable = (Time.time - _lastTimeAttack) > _character.Weapon.Data.attackCooldown;
 

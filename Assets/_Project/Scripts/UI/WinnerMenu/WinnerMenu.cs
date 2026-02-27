@@ -12,14 +12,9 @@ namespace BattleArena.UI
         [SerializeField] private Button _restartButton;
         [SerializeField] private TextMeshProUGUI _winnerName;
 
+        private void OnEnable() => _restartButton.onClick.AddListener(HandleRestartClick);
 
-        private void Awake()
-        {
-            _restartButton.onClick.AddListener(() =>
-            {
-                OnRestartClicked?.Invoke();
-            });
-        }
+        private void OnDisable() => _restartButton.onClick.RemoveListener(HandleRestartClick);
 
         public void Show(string winnerName)
         {
@@ -31,6 +26,11 @@ namespace BattleArena.UI
         {
             _winnerName.text = null;
             gameObject.SetActive(false);
+        }
+
+        private void HandleRestartClick()
+        {
+            OnRestartClicked?.Invoke();
         }
     }
 }

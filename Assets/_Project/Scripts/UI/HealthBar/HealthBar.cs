@@ -10,7 +10,6 @@ namespace BattleArena.UI
         [SerializeField] private Image _healthBar;
         [SerializeField] private TextMeshProUGUI _maxHealthText;
         [SerializeField] private TextMeshProUGUI _currentHealthText;
-
         private Character _character;
 
         private void OnDestroy()
@@ -27,7 +26,6 @@ namespace BattleArena.UI
             _maxHealthText.text = $"/{character.CharacterData.health}";
             UpdateHealth(character.CharacterData.health, character.CharacterData.health);
         }
-
 
         private void UpdateHealth(float current, float maxHealth)
         {

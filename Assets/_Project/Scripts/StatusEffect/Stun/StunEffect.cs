@@ -5,7 +5,6 @@ namespace BattleArena.StatusEffects.Stun
 {
     public class StunEffect : StatusEffect
     {
-
         public StunEffect(float duration) : base(duration) { }
 
         public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
