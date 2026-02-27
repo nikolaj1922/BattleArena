@@ -1,6 +1,6 @@
 using BattleArena.Characters;
 using BattleArena.Interfaces;
-using UnityEngine;
+using BattleArena.StatusEffects.Visitors;
 
 namespace BattleArena.StatusEffects.DamageModifier
 {
@@ -13,10 +13,6 @@ namespace BattleArena.StatusEffects.DamageModifier
             _multiplier = multiplier;
         }
 
-        public override string DisplayName => "Weakness!";
-
-        public override Color DisplayColor => Color.lightPink;
-
         public float Modify(float baseDamage) => baseDamage * _multiplier;
 
         public override void OnAdd(Character target)
@@ -26,5 +22,6 @@ namespace BattleArena.StatusEffects.DamageModifier
 
         public override void OnRemove(Character target) => target.Attack.RemoveDamageModifier(this);
 
+        public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
     }
 }

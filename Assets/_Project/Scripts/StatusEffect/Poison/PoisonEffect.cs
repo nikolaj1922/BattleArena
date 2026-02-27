@@ -1,5 +1,6 @@
 using UnityEngine;
 using BattleArena.Characters;
+using BattleArena.StatusEffects.Visitors;
 
 namespace BattleArena.StatusEffects.Poison
 {
@@ -14,10 +15,6 @@ namespace BattleArena.StatusEffects.Poison
             _damage = damage;
             _frequency = frequency;
         }
-
-        public override string DisplayName => "Poison!";
-
-        public override Color DisplayColor => Color.green;
 
         public override void OnAdd(Character target) { }
 
@@ -35,5 +32,7 @@ namespace BattleArena.StatusEffects.Poison
                 target.TakeDamage(_damage);
             }
         }
+
+        public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
     }
 }

@@ -1,5 +1,5 @@
 using BattleArena.Characters;
-using UnityEngine;
+using BattleArena.StatusEffects.Visitors;
 
 namespace BattleArena.StatusEffects.Stun
 {
@@ -8,9 +8,7 @@ namespace BattleArena.StatusEffects.Stun
 
         public StunEffect(float duration) : base(duration) { }
 
-        public override string DisplayName => "Stunned!";
-
-        public override Color DisplayColor => Color.yellow;
+        public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
 
         public override void OnAdd(Character target)
         {

@@ -1,5 +1,6 @@
-using BattleArena.Characters;
 using UnityEngine;
+using BattleArena.Characters;
+using BattleArena.StatusEffects.Visitors;
 
 namespace BattleArena.StatusEffects
 {
@@ -8,13 +9,12 @@ namespace BattleArena.StatusEffects
         private float _elapsedTime;
         private readonly float _duration;
 
-        public abstract string DisplayName { get; }
-        public abstract Color DisplayColor { get; }
-
         public StatusEffect(float duration)
         {
             _duration = duration;
         }
+
+        public abstract void Accept(IStatusEffectVisitor visiter);
 
         public bool IsFinished { get; private set; }
 

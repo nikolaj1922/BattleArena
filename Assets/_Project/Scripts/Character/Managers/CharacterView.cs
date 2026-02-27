@@ -1,9 +1,7 @@
 using UnityEngine;
 using BattleArena.UI;
 using BattleArena.StatusEffects;
-using BattleArena.StatusEffects.Stun;
-using BattleArena.StatusEffects.Poison;
-using BattleArena.StatusEffects.DamageModifier;
+using BattleArena.StatusEffects.Visitors;
 
 namespace BattleArena.Characters.Managers
 {
@@ -15,6 +13,7 @@ namespace BattleArena.Characters.Managers
         [SerializeField] private Canvas floatTextPrefab;
 
         private CharacterEffect _characterEffect;
+        private IStatusEffectVisitor _statusEffectVisiter;
 
         [field: SerializeField] public HealthBar HealthBar { get; private set; }
 
@@ -22,6 +21,8 @@ namespace BattleArena.Characters.Managers
         {
             _characterEffect = GetComponent<CharacterEffect>();
             _characterEffect.OnEffectAdded += HandleEffectAdded;
+
+            _statusEffectVisiter = new StatusEffectViewVisitor(this);
         }
 
         private void OnDestroy() => _characterEffect.OnEffectAdded -= HandleEffectAdded;
@@ -33,8 +34,7 @@ namespace BattleArena.Characters.Managers
             canvasObj.GetComponent<FloatingTextCanvas>().Init(text, color);
         }
 
-        private void HandleEffectAdded(StatusEffect effect) => ShowFloatingText(effect.DisplayName, effect.DisplayColor);
-
+        private void HandleEffectAdded(StatusEffect effect) => effect.Accept(_statusEffectVisiter);
     }
 }
 
