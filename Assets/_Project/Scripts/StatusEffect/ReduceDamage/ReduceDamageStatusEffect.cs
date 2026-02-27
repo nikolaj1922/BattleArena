@@ -22,6 +22,6 @@ namespace BattleArena.StatusEffects.DamageModifier
 
         public override void OnRemove(Character target) => target.Attack.RemoveDamageModifier(this);
 
-        public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
+        public override void Accept(IStatusEffectVisitor visitor) => visitor.Visit(this);
     }
 }

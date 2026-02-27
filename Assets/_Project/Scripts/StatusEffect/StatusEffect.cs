@@ -14,7 +14,7 @@ namespace BattleArena.StatusEffects
             _duration = duration;
         }
 
-        public abstract void Accept(IStatusEffectVisitor visiter);
+        public abstract void Accept(IStatusEffectVisitor visitor);
 
         public bool IsFinished { get; private set; }
 

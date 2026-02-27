@@ -13,7 +13,7 @@ namespace BattleArena.Characters.Managers
         [SerializeField] private Canvas floatTextPrefab;
 
         private CharacterEffect _characterEffect;
-        private IStatusEffectVisitor _statusEffectVisiter;
+        private IStatusEffectVisitor _statusEffectVisitor;
 
         [field: SerializeField] public HealthBar HealthBar { get; private set; }
 
@@ -22,7 +22,7 @@ namespace BattleArena.Characters.Managers
             _characterEffect = GetComponent<CharacterEffect>();
             _characterEffect.OnEffectAdded += HandleEffectAdded;
 
-            _statusEffectVisiter = new StatusEffectViewVisitor(this);
+            _statusEffectVisitor = new StatusEffectViewVisitor(this);
         }
 
         private void OnDestroy() => _characterEffect.OnEffectAdded -= HandleEffectAdded;
@@ -34,7 +34,7 @@ namespace BattleArena.Characters.Managers
             canvasObj.GetComponent<FloatingTextCanvas>().Init(text, color);
         }
 
-        private void HandleEffectAdded(StatusEffect effect) => effect.Accept(_statusEffectVisiter);
+        private void HandleEffectAdded(StatusEffect effect) => effect.Accept(_statusEffectVisitor);
     }
 }
 

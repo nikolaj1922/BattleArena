@@ -33,6 +33,6 @@ namespace BattleArena.StatusEffects.Poison
             }
         }
 
-        public override void Accept(IStatusEffectVisitor visiter) => visiter.Visit(this);
+        public override void Accept(IStatusEffectVisitor visitor) => visitor.Visit(this);
     }
 }

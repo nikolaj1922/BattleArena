@@ -1,7 +1,3 @@
-using System;
-using BattleArena.Characters;
-using UnityEngine;
-
 namespace BattleArena.Weapons
 {
     public class Projectile : MonoBehaviour
