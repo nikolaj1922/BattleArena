@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BattleArena.Weapons
 {
-    public abstract class Weapon : MonoBehaviour, IWeapon
+    public abstract class Weapon : MonoBehaviour
     {
         protected Character _character;
         [field: SerializeField] public WeaponData Data { get; private set; }

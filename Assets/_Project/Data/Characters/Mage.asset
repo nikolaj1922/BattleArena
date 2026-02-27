@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Zephryn
   health: 85
   moveSpeed: 2
-  prefab: {fileID: 6438694166359944150, guid: 3dcb7923871a02e4288f8c602d3ab3f3, type: 3}
+  character: {fileID: 4129236818898581741, guid: 3dcb7923871a02e4288f8c602d3ab3f3, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Kael
   health: 90
   moveSpeed: 2
-  prefab: {fileID: 1979897433614077911, guid: 33d96bc0fbb547a40b435e4c6da868c3, type: 3}
+  character: {fileID: 8408338833875465652, guid: 33d96bc0fbb547a40b435e4c6da868c3, type: 3}

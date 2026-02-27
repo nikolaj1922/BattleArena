@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867b19482b337844f9b5c2e623be9b2e, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  prefab: {fileID: 919132149155446097, guid: 510a70b6f0153c24a9cca4be3d9b5c8d, type: 3}
+  weapon: {fileID: 1928950815986581708, guid: 510a70b6f0153c24a9cca4be3d9b5c8d, type: 3}
   attackCooldown: 2
   attackRange: 8
   damage: 7

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867b19482b337844f9b5c2e623be9b2e, type: 3}
   m_Name: Magic Staff
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  prefab: {fileID: 919132149155446097, guid: 513bc70d3ef780943a201812e5d0aa8a, type: 3}
+  weapon: {fileID: 8648075337562812515, guid: 513bc70d3ef780943a201812e5d0aa8a, type: 3}
   attackCooldown: 3
   attackRange: 8
   damage: 10
