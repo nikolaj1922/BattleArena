@@ -1,6 +1,6 @@
 namespace BattleArena.Characters.StateMachine
 {
-    public class AttackState : IUpdateCharacterState
+    public class AttackState : IUpdateState
     {
         private readonly Character _character;
 

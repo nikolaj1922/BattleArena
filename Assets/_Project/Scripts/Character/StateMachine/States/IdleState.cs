@@ -1,6 +1,6 @@
 namespace BattleArena.Characters.StateMachine
 {
-    public class IdleState : IEnterCharacterState
+    public class IdleState : IEnterState
     {
         private readonly Character _character;
 

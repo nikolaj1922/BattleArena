@@ -48,7 +48,7 @@ namespace BattleArena.Characters
             Locomotion = GetComponent<CharacterLocomotion>();
 
             _stateMachine = new CharacterStateMachine(
-                new ICharacterState[]
+                new IState[]
                     {
                         new IdleState(this),
                         new DeathState(this),
@@ -71,7 +71,7 @@ namespace BattleArena.Characters
 
         private void Update() => _stateMachine.Update();
 
-        public virtual void Init(CharacterData characterData)
+        public void Init(CharacterData characterData)
         {
             CharacterData = characterData;
             CurrentHealth = characterData.health;

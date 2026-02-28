@@ -3,7 +3,7 @@ using System;
 namespace BattleArena.Characters.StateMachine
 {
     public class Transition<TFrom, TTo> : ITransition
-        where TFrom : ICharacterState where TTo : ICharacterState
+        where TFrom : IState where TTo : IState
     {
         private readonly Func<bool> _condition;
         public Type From { get; }

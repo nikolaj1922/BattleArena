@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BattleArena.Characters.StateMachine
 {
-    public class MoveState : IEnterCharacterState, IExitCharacterState
+    public class MoveState : IEnterState, IExitState
     {
         private readonly Character _character;
 

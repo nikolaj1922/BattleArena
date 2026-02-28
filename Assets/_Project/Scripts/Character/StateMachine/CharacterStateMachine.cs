@@ -5,11 +5,11 @@ namespace BattleArena.Characters.StateMachine
 {
     public class CharacterStateMachine
     {
-        private ICharacterState _currentState;
-        private readonly ICharacterState[] _states;
+        private IState _currentState;
+        private readonly IState[] _states;
         private readonly ITransition[] _transitions;
 
-        public CharacterStateMachine(ICharacterState[] states, ITransition[] transitions)
+        public CharacterStateMachine(IState[] states, ITransition[] transitions)
         {
             _states = states;
             _transitions = transitions;
@@ -19,7 +19,7 @@ namespace BattleArena.Characters.StateMachine
 
         public void Update()
         {
-            if (_currentState is IUpdateCharacterState updateState)
+            if (_currentState is IUpdateState updateState)
                 updateState.OnUpdate();
 
             foreach (ITransition transition in _transitions)
@@ -33,12 +33,12 @@ namespace BattleArena.Characters.StateMachine
 
         private void SwitchState(Type to)
         {
-            if (_currentState is IExitCharacterState exitState)
+            if (_currentState is IExitState exitState)
                 exitState.OnExit();
 
             _currentState = _states.First(s => s.GetType() == to);
 
-            if (_currentState is IEnterCharacterState enterState)
+            if (_currentState is IEnterState enterState)
                 enterState.OnEnter();
         }
     }

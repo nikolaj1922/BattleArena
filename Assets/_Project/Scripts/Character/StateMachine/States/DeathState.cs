@@ -2,7 +2,7 @@ using BattleArena.Characters.Managers;
 
 namespace BattleArena.Characters.StateMachine
 {
-    public class DeathState : IEnterCharacterState
+    public class DeathState : IEnterState
     {
         private readonly Character _character;
 
