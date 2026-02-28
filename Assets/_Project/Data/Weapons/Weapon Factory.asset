@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d969d1a9c510e49962249d90976027, type: 3}
   m_Name: Weapon Factory
   m_EditorClassIdentifier: Assembly-CSharp::BattleArena.Weapons.WeaponFactory
-  _oneHandedSword: {fileID: 0}
-  _bow: {fileID: 0}
-  _magicStaff: {fileID: 0}
+  _oneHandedSword: {fileID: 11400000, guid: 23bef1ceabe4c1a4886f6095bebc6833, type: 2}
+  _bow: {fileID: 11400000, guid: 028a8e034f4015349b9bd47f3163d19f, type: 2}
+  _magicStaff: {fileID: 11400000, guid: 4c3a12fdd76df6340addef55aecb5d0b, type: 2}

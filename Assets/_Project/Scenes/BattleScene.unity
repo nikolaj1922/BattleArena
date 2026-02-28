@@ -1865,62 +1865,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159935168}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &162845332
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 162845334}
-  - component: {fileID: 162845333}
-  m_Layer: 0
-  m_Name: BattleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &162845333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162845332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ed113080398d344ba0550aef3764bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleManager
-  _characters:
-  - {fileID: 11400000, guid: b5f7e76078de08e46992126c16390d6a, type: 2}
-  - {fileID: 11400000, guid: a70c9137b4724f94e83111122d705fdb, type: 2}
-  - {fileID: 11400000, guid: 2c587ddfab32adf479d75a9611c87fb1, type: 2}
-  _weapons:
-  - {fileID: 11400000, guid: 23bef1ceabe4c1a4886f6095bebc6833, type: 2}
-  - {fileID: 11400000, guid: 4c3a12fdd76df6340addef55aecb5d0b, type: 2}
-  - {fileID: 11400000, guid: 028a8e034f4015349b9bd47f3163d19f, type: 2}
-  _spawnPositions:
-  - {fileID: 898495161}
-  - {fileID: 244423108}
-  _battleWinnerMenu: {fileID: 1481741899}
---- !u!4 &162845334
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162845332}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &172856207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,6 +5905,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666137708}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &677225999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677226001}
+  - component: {fileID: 677226000}
+  m_Layer: 0
+  m_Name: Battle Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &677226000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677225999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d6b9211d14e4a41bf4cfd8e9af2344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.Battle.BattleInstaller
+  _characterFactory: {fileID: 11400000, guid: 26487e3d2a55cff4783f8bf803391e8c, type: 2}
+  _weaponFactory: {fileID: 11400000, guid: af3cfe28dcd463041950049806b6250b, type: 2}
+  _spawnPoints:
+  - {fileID: 898495161}
+  - {fileID: 244423108}
+  _restartGamePanel: {fileID: 0}
+--- !u!4 &677226001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677225999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.05919, y: 0, z: 3.083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677640656
 GameObject:
   m_ObjectHideFlags: 0
@@ -14277,14 +14271,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481741898}
-  - component: {fileID: 1481741899}
   m_Layer: 5
-  m_Name: Winner Menu
+  m_Name: Restart Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1481741898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14307,20 +14300,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 542.7651, y: 230.7211}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1481741899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481741897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bba4922ea1b69a49a7fa7872ab477da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WinnerMenu
-  _winnerName: {fileID: 534474541}
-  _restartButton: {fileID: 771847893}
 --- !u!1 &1483489611
 GameObject:
   m_ObjectHideFlags: 0
@@ -14657,6 +14636,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498653633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1502021972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502021974}
+  - component: {fileID: 1502021973}
+  m_Layer: 0
+  m_Name: Game Entry Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1502021973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502021972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621ac89eb066d4c419a0563508e6597b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.GameEntryPoint
+  _installer: {fileID: 0}
+--- !u!4 &1502021974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502021972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.05919, y: 0, z: 3.083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510533784
 GameObject:
   m_ObjectHideFlags: 0
@@ -15229,13 +15253,14 @@ GameObject:
   - component: {fileID: 1560137514}
   - component: {fileID: 1560137513}
   - component: {fileID: 1560137512}
+  - component: {fileID: 1560137516}
   m_Layer: 5
-  m_Name: Battle Menu Canvas
+  m_Name: Restart Panel Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1560137512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15319,6 +15344,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1560137516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560137511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bba4922ea1b69a49a7fa7872ab477da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.UI.RestartPanel
+  _restartButton: {fileID: 771847893}
+  _winnerName: {fileID: 534474541}
 --- !u!1 &1563907038
 GameObject:
   m_ObjectHideFlags: 0
@@ -20610,6 +20649,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1235803942}
-  - {fileID: 162845334}
   - {fileID: 1560137515}
   - {fileID: 1839251636}
+  - {fileID: 1502021974}
+  - {fileID: 677226001}

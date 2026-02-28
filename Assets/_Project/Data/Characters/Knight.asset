@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Aldric
   health: 120
   moveSpeed: 1.5
-  character: {fileID: 8774609922490757530, guid: 3b727a3386c29f948bf89db4481e7615, type: 3}
+  prefab: {fileID: 8774609922490757530, guid: 3b727a3386c29f948bf89db4481e7615, type: 3}

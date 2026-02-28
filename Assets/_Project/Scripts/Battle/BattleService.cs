@@ -1,44 +1,37 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-using Random = UnityEngine.Random;
-using BattleArena.UI;
-using BattleArena.Weapons;
 using BattleArena.Characters;
+using BattleArena.Weapons;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace BattleArena.Managers
+namespace BattleArena.Battle
 {
-    public class BattleManager : MonoBehaviour
+    public class BattleService
     {
-        [Header("Character Factory")]
-        [SerializeField] private CharacterFactory _characterFactory;
+        public event Action<string> OnBattleEnded;
 
-        [Header("Weapon Factory")]
-        [SerializeField] private WeaponFactory _weaponFactory;
-
-        [Header("Start positions")]
-        [SerializeField] private Transform[] _spawnPositions = new Transform[2];
-
-        [Header("Winner menu")]
-        [SerializeField] private WinnerMenu _battleWinnerMenu;
-
+        private readonly CharacterFactory _characterFactory;
+        private readonly WeaponFactory _weaponFactory;
+        private readonly Transform[] _spawnPoints;
+        private readonly ICharacterDestroyer _destroyer;
         private readonly List<Character> _inBattleCharacters = new();
 
-        private void Start()
+        public BattleService(CharacterFactory characterFactory, WeaponFactory weaponFactory, Transform[] spawnPoints, ICharacterDestroyer characterDestroyer)
         {
-            StartBattle();
-            _battleWinnerMenu.OnRestartClicked += RestartBattle;
+            _characterFactory = characterFactory;
+            _weaponFactory = weaponFactory;
+            _spawnPoints = spawnPoints;
+            _destroyer = characterDestroyer;
         }
 
-        private void OnDestroy() => _battleWinnerMenu.OnRestartClicked -= RestartBattle;
-
-        private void StartBattle()
+        public void StartBattle()
         {
             int firstCharacterIndex = GetRandomCharacterIndex();
             int secondCharacterIndex = GetRandomCharacterIndex();
 
-            Character firstCharacter = _characterFactory.Create((CharacterType)firstCharacterIndex, _spawnPositions[0].position);
-            Character secondCharacter = _characterFactory.Create((CharacterType)secondCharacterIndex, _spawnPositions[1].position);
+            Character firstCharacter = _characterFactory.Create((CharacterType)firstCharacterIndex, _spawnPoints[0].position);
+            Character secondCharacter = _characterFactory.Create((CharacterType)secondCharacterIndex, _spawnPoints[1].position);
 
             Weapon firstWeapon = _weaponFactory.Create((WeaponType)firstCharacterIndex);
             Weapon secondWeapon = _weaponFactory.Create((WeaponType)secondCharacterIndex);
@@ -56,10 +49,9 @@ namespace BattleArena.Managers
         public void RestartBattle()
         {
             foreach (var character in _inBattleCharacters)
-                Destroy(character.gameObject);
+                _destroyer.Destroy(character);
 
             _inBattleCharacters.Clear();
-            _battleWinnerMenu.Hide();
 
             StartBattle();
         }
@@ -73,12 +65,9 @@ namespace BattleArena.Managers
         private void HandleCharacterDeath(Character deadCharacter)
         {
             deadCharacter.OnDeath -= HandleCharacterDeath;
-
-            string winnerName = deadCharacter.AttackTarget.CharacterData.characterName;
-            _battleWinnerMenu.Show(winnerName);
+            OnBattleEnded?.Invoke(deadCharacter.AttackTarget.CharacterData.characterName);
         }
 
         private int GetRandomCharacterIndex() => Random.Range(0, Enum.GetValues(typeof(CharacterType)).Length);
     }
 }
-
