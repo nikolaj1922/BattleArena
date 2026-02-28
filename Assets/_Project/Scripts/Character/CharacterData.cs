@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BattleArena.Characters
 {
-    [CreateAssetMenu(menuName = "Character")]
+    [CreateAssetMenu(menuName = "Character/Character")]
     public class CharacterData : ScriptableObject
     {
         public string characterName;

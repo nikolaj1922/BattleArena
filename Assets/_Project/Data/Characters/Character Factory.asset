@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151459d0432acec4498b0dfb6fe9abe4, type: 3}
+  m_Name: Character Factory
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.Characters.Factory.CharacterFactory
+  _knight: {fileID: 11400000, guid: b5f7e76078de08e46992126c16390d6a, type: 2}
+  _mage: {fileID: 11400000, guid: a70c9137b4724f94e83111122d705fdb, type: 2}
+  _rogue: {fileID: 11400000, guid: 2c587ddfab32adf479d75a9611c87fb1, type: 2}

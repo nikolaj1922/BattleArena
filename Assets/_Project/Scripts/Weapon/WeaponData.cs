@@ -5,7 +5,7 @@ using BattleArena.StatusEffects;
 
 namespace BattleArena.Weapons
 {
-    [CreateAssetMenu(menuName = "Weapon")]
+    [CreateAssetMenu(menuName = "Weapon/Weapon")]
     public class WeaponData : ScriptableObject
     {
         public Weapon weapon;
