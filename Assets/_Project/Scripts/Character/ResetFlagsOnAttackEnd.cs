@@ -1,11 +1,14 @@
 using BattleArena.Characters;
 using UnityEngine;
 
-public class ResetFlagsOnAttackEnd : StateMachineBehaviour
+namespace BattleArena.UI
 {
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public class ResetFlagsOnAttackEnd : StateMachineBehaviour
     {
-        Character character = animator.GetComponent<Character>();
-        character.Attack.DecreaseBlockCounter();
+        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            Character character = animator.GetComponent<Character>();
+            character.Attack.DecreaseBlockCounter();
+        }
     }
 }

@@ -2,40 +2,43 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class FloatingTextCanvas : MonoBehaviour
+namespace BattleArena.UI
 {
-    [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private float _floatSpeed = 1f;
-    [SerializeField] private float _duration = 1f;
-
-    private CanvasGroup _canvasGroup;
-
-    private void Awake()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class FloatingTextCanvas : MonoBehaviour
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
+        [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private float _floatSpeed = 1f;
+        [SerializeField] private float _duration = 1f;
 
-    public void Init(string canvasText, Color color)
-    {
-        _text.text = canvasText;
-        _text.color = color;
-        StartCoroutine(FloatingCoroutine());
-    }
+        private CanvasGroup _canvasGroup;
 
-    private IEnumerator FloatingCoroutine()
-    {
-        float elapsed = 0f;
-        Vector3 startPos = transform.position;
-        Vector3 worldUp = Vector3.up;
-        while (elapsed < _duration)
+        private void Awake()
         {
-            transform.position = startPos + worldUp * _floatSpeed * elapsed;
-            _canvasGroup.alpha = 1f - (elapsed / _duration);
-            elapsed += Time.deltaTime;
-            yield return null;
+            _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        Destroy(gameObject);
+        public void Init(string canvasText, Color color)
+        {
+            _text.text = canvasText;
+            _text.color = color;
+            StartCoroutine(FloatingCoroutine());
+        }
+
+        private IEnumerator FloatingCoroutine()
+        {
+            float elapsed = 0f;
+            Vector3 startPos = transform.position;
+            Vector3 worldUp = Vector3.up;
+            while (elapsed < _duration)
+            {
+                transform.position = startPos + worldUp * _floatSpeed * elapsed;
+                _canvasGroup.alpha = 1f - (elapsed / _duration);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

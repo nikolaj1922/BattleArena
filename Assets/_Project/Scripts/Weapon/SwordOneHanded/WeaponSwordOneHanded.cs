@@ -1,4 +1,3 @@
-
 namespace BattleArena.Weapons
 {
     public class WeaponSwordOneHanded : Weapon
