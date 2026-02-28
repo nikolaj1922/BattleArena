@@ -1,6 +1,8 @@
-using UnityEngine;
 
-namespace BattleArena.Characters.StateMachine
+using UnityEngine;
+using BattleArena.FSM;
+
+namespace BattleArena.Characters.States
 {
     public class MoveState : IEnterState, IExitState
     {

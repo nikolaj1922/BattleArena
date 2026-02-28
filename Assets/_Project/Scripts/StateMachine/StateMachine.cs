@@ -1,15 +1,15 @@
 using System;
 using System.Linq;
 
-namespace BattleArena.Characters.StateMachine
+namespace BattleArena.FSM
 {
-    public class CharacterStateMachine
+    public class StateMachine
     {
         private IState _currentState;
         private readonly IState[] _states;
         private readonly ITransition[] _transitions;
 
-        public CharacterStateMachine(IState[] states, ITransition[] transitions)
+        public StateMachine(IState[] states, ITransition[] transitions)
         {
             _states = states;
             _transitions = transitions;

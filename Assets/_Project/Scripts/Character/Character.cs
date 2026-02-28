@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using BattleArena.Characters.Managers;
 using BattleArena.Weapons;
-using BattleArena.Characters.StateMachine;
+using BattleArena.FSM;
 
 namespace BattleArena.Characters
 {
@@ -17,7 +17,7 @@ namespace BattleArena.Characters
         public event Action<Character> OnDeath;
         public event Action<float, float> OnHealthChanged;
 
-        private CharacterStateMachine _stateMachine;
+        private StateMachine _stateMachine;
 
         public Rigidbody Rb { get; private set; }
         public CharacterView View { get; private set; }
@@ -47,34 +47,16 @@ namespace BattleArena.Characters
             Animation = GetComponent<CharacterAnimation>();
             Locomotion = GetComponent<CharacterLocomotion>();
 
-            _stateMachine = new CharacterStateMachine(
-                new IState[]
-                    {
-                        new IdleState(this),
-                        new DeathState(this),
-                        new AttackState(this),
-                        new MoveState(this)
-                    },
-                new ITransition[]
-                    {
-                        new Transition<IdleState, MoveState>(() => AttackTarget != null),
-                        new Transition<MoveState, AttackState>(() => CloseToAttackTarget()),
-                        new Transition<AttackState, DeathState>(() => CurrentHealth <= 0),
-                        new Transition<IdleState, DeathState>(() => CurrentHealth <= 0),
-                        new Transition<AttackState, MoveState>(() => !CloseToAttackTarget()),
-                        new Transition<AttackState, IdleState>(() => AttackTarget == null)
-                    }
-            );
-
             OnDeath += HandleDeath;
         }
 
         private void Update() => _stateMachine.Update();
 
-        public void Init(CharacterData characterData)
+        public void Init(CharacterData characterData, StateMachine stateMachine)
         {
             CharacterData = characterData;
             CurrentHealth = characterData.health;
+            _stateMachine = stateMachine;
 
             View.HealthBar.Bind(this);
         }
@@ -105,14 +87,13 @@ namespace BattleArena.Characters
 
         }
 
+        public bool CloseToAttackTarget() =>
+            AttackTarget != null && Weapon != null && Vector3.Distance(transform.position, AttackTarget.transform.position) <= Weapon.Data.attackRange;
+
         private void HandleDeath(Character character)
         {
             OnDeath -= HandleDeath;
             Effects.ClearEffects();
         }
-
-        private bool CloseToAttackTarget() =>
-            AttackTarget != null && Weapon != null && Vector3.Distance(transform.position, AttackTarget.transform.position) <= Weapon.Data.attackRange;
     }
-
 }

@@ -8,6 +8,6 @@ namespace BattleArena.Characters
         public string characterName;
         public float health;
         public float moveSpeed;
-        public Character character;
+        public Character prefab;
     }
 }

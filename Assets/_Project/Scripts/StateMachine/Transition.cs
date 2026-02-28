@@ -1,6 +1,6 @@
 using System;
 
-namespace BattleArena.Characters.StateMachine
+namespace BattleArena.FSM
 {
     public class Transition<TFrom, TTo> : ITransition
         where TFrom : IState where TTo : IState

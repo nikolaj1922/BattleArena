@@ -1,6 +1,8 @@
-using BattleArena.Characters.Managers;
 
-namespace BattleArena.Characters.StateMachine
+using BattleArena.Characters.Managers;
+using BattleArena.FSM;
+
+namespace BattleArena.Characters.States
 {
     public class DeathState : IEnterState
     {

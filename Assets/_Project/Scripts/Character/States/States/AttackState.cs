@@ -1,4 +1,6 @@
-namespace BattleArena.Characters.StateMachine
+using BattleArena.FSM;
+
+namespace BattleArena.Characters.States
 {
     public class AttackState : IUpdateState
     {

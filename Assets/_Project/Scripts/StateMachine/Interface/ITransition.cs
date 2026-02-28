@@ -1,6 +1,6 @@
 using System;
 
-namespace BattleArena.Characters.StateMachine
+namespace BattleArena.FSM
 {
     public interface ITransition
     {

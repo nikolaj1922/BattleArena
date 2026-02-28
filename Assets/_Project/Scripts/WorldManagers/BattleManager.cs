@@ -1,18 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 using BattleArena.UI;
-using BattleArena.Weapons;
 using BattleArena.Characters;
+using System;
+using Random = UnityEngine.Random;
 
 namespace BattleArena.Managers
 {
     public class BattleManager : MonoBehaviour
     {
-        [Header("Characters")]
-        [SerializeField] private CharacterData[] _characters = new CharacterData[3];
-
-        [Header("Weapons")]
-        [SerializeField] private WeaponData[] _weapons = new WeaponData[3];
+        [Header("CharacterFactory")] private CharacterFactory _characterFactory;
 
         [Header("Start positions")]
         [SerializeField] private Transform[] _spawnPositions = new Transform[2];
@@ -57,8 +54,8 @@ namespace BattleArena.Managers
 
         private void StartBattle()
         {
-            Character firstCharacter = CreateCharacter(_spawnPositions[0].position);
-            Character secondCharacter = CreateCharacter(_spawnPositions[1].position);
+            Character firstCharacter = _characterFactory.Create((CharacterType)GetRandomCharacterIndex(), _spawnPositions[0].position);
+            Character secondCharacter = _characterFactory.Create((CharacterType)GetRandomCharacterIndex(), _spawnPositions[1].position);
 
             if (firstCharacter && secondCharacter)
             {
@@ -74,27 +71,7 @@ namespace BattleArena.Managers
             }
         }
 
-        private Character CreateCharacter(Vector3 spawnPosition)
-        {
-            int randomIndex = GetRandomCharacterIndex();
-            CharacterData characterData = _characters[randomIndex];
-            WeaponData characterWeapon = _weapons[randomIndex];
-
-            return SpawnCharacter(characterData, characterWeapon, spawnPosition);
-        }
-
-        private Character SpawnCharacter(CharacterData characterData, WeaponData weaponData, Vector3 spawnPosition)
-        {
-            Character character = Instantiate(characterData.character, spawnPosition, Quaternion.identity);
-            Weapon weapon = Instantiate(weaponData.weapon);
-
-            character.SetWeapon(weapon);
-            character.Init(characterData);
-
-            return character;
-        }
-
-        private int GetRandomCharacterIndex() => Random.Range(0, _characters.Length);
+        private int GetRandomCharacterIndex() => Random.Range(0, Enum.GetValues(typeof(CharacterType)).Length);
     }
 }
 
