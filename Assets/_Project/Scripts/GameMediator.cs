@@ -1,9 +1,10 @@
+using System;
 using BattleArena.Battle;
 using BattleArena.UI;
 
 namespace BattleArena
 {
-    public class GameMediator
+    public class GameMediator : IDisposable
     {
         private readonly BattleService _battleService;
         private readonly RestartPanel _restartGamePanel;
@@ -15,6 +16,8 @@ namespace BattleArena
 
             _battleService.OnBattleEnded += EndBattle;
         }
+
+        public void Dispose() => _battleService.OnBattleEnded -= EndBattle;
 
         public void EndBattle(string winnerName) => _restartGamePanel.Show(winnerName);
 
