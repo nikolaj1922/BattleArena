@@ -5,9 +5,9 @@ using BattleArena.Weapons;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BattleArena.Battle
+namespace BattleArena
 {
-    public class BattleService
+    public class Battle
     {
         public event Action<string> OnBattleEnded;
 
@@ -17,7 +17,7 @@ namespace BattleArena.Battle
         private readonly ICharacterDestroyer _destroyer;
         private readonly List<Character> _inBattleCharacters = new();
 
-        public BattleService(CharacterFactory characterFactory, WeaponFactory weaponFactory, Transform[] spawnPoints, ICharacterDestroyer characterDestroyer)
+        public Battle(CharacterFactory characterFactory, WeaponFactory weaponFactory, Transform[] spawnPoints, ICharacterDestroyer characterDestroyer)
         {
             _characterFactory = characterFactory;
             _weaponFactory = weaponFactory;

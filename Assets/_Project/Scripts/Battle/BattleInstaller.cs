@@ -1,20 +1,22 @@
 using UnityEngine;
 using BattleArena.Weapons;
 using BattleArena.Characters;
+using BattleArena.Characters.Config;
+using BattleArena.Weapons.Config;
 
-namespace BattleArena.Battle
+namespace BattleArena
 {
     public class BattleInstaller : MonoBehaviour
     {
-        [SerializeField] private CharacterFactory _characterFactory;
-        [SerializeField] private WeaponFactory _weaponFactory;
         [SerializeField] private Transform[] _spawnPoints;
+        [SerializeField] private CharacterConfig _characterConfig;
+        [SerializeField] private WeaponConfig _weaponConfig;
 
-        public BattleService Compose()
+        public Battle Compose()
         {
-            return new BattleService(
-                _characterFactory,
-                _weaponFactory,
+            return new Battle(
+                new CharacterFactory(_characterConfig),
+                new WeaponFactory(_weaponConfig),
                 _spawnPoints,
                 new CharacterDestroyer()
             );

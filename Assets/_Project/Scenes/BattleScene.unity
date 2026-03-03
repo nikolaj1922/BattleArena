@@ -5713,11 +5713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d6b9211d14e4a41bf4cfd8e9af2344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleArena.Battle.BattleInstaller
-  _characterFactory: {fileID: 11400000, guid: 26487e3d2a55cff4783f8bf803391e8c, type: 2}
-  _weaponFactory: {fileID: 11400000, guid: af3cfe28dcd463041950049806b6250b, type: 2}
   _spawnPoints:
   - {fileID: 898495161}
   - {fileID: 244423108}
+  _characterConfig: {fileID: 11400000, guid: f40333abc32d3524c970eb5166cead7c, type: 2}
+  _weaponConfig: {fileID: 11400000, guid: 010cf299ac784bf4ab6c2397c3907940, type: 2}
 --- !u!4 &677226001
 Transform:
   m_ObjectHideFlags: 0

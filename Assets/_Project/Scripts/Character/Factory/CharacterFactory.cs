@@ -1,7 +1,8 @@
 using System;
-using BattleArena.Characters.States;
-using BattleArena.FSM;
 using UnityEngine;
+using BattleArena.FSM;
+using BattleArena.Characters.States;
+using BattleArena.Characters.Config;
 
 namespace BattleArena.Characters
 {
@@ -12,16 +13,19 @@ namespace BattleArena.Characters
         Mage
     }
 
-    [CreateAssetMenu(menuName = "Character/Factory")]
-    public class CharacterFactory : ScriptableObject
+    public class CharacterFactory
     {
-        [SerializeField]
-        private CharacterData _knight, _mage, _rogue;
+        private readonly CharacterConfig _config;
+
+        public CharacterFactory(CharacterConfig config)
+        {
+            _config = config;
+        }
 
         public Character Create(CharacterType characterType, Vector3 pos)
         {
             CharacterData data = GetData(characterType);
-            Character character = Instantiate(data.prefab, pos, Quaternion.identity);
+            Character character = UnityEngine.GameObject.Instantiate(data.prefab, pos, Quaternion.identity);
 
             StateMachine stateMachine = new(
                 new IState[]
@@ -52,11 +56,11 @@ namespace BattleArena.Characters
             switch (characterType)
             {
                 case CharacterType.Knight:
-                    return _knight;
+                    return _config.Knight;
                 case CharacterType.Mage:
-                    return _mage;
+                    return _config.Mage;
                 case CharacterType.Rogue:
-                    return _rogue;
+                    return _config.Rogue;
                 default:
                     throw new ArgumentException(nameof(characterType));
             }

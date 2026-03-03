@@ -1,4 +1,3 @@
-using BattleArena.Battle;
 using BattleArena.UI;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace BattleArena
 
         private void Awake()
         {
-            BattleService battleService = _installer.Compose();
+            Battle battleService = _installer.Compose();
 
             RestartPanel restartPanelInstance = Instantiate(_restartGamePanel);
 

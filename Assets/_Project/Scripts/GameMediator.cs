@@ -1,19 +1,21 @@
 using System;
-using BattleArena.Battle;
 using BattleArena.UI;
 
 namespace BattleArena
 {
     public class GameMediator : IDisposable
     {
-        private readonly BattleService _battleService;
+        private readonly Battle _battleService;
         private readonly RestartPanel _restartGamePanel;
 
-        public GameMediator(BattleService battleService, RestartPanel restartGamePanel)
+        public GameMediator(Battle battleService, RestartPanel restartGamePanel)
         {
             _battleService = battleService;
             _restartGamePanel = restartGamePanel;
+        }
 
+        public void Initialize()
+        {
             _battleService.OnBattleEnded += EndBattle;
         }
 

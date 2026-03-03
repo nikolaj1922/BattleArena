@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using BattleArena.Weapons.Config;
 
 namespace BattleArena.Weapons
 {
@@ -10,14 +11,18 @@ namespace BattleArena.Weapons
         MagicStaff
     }
 
-    [CreateAssetMenu(menuName = "Weapon/Factory")]
-    public class WeaponFactory : ScriptableObject
+    public class WeaponFactory
     {
-        [SerializeField] WeaponData _oneHandedSword, _bow, _magicStaff;
+        private readonly WeaponConfig _config;
+
+        public WeaponFactory(WeaponConfig config)
+        {
+            _config = config;
+        }
 
         public Weapon Create(WeaponType weaponType)
         {
-            return Instantiate(GetData(weaponType).weapon);
+            return UnityEngine.GameObject.Instantiate(GetData(weaponType).weapon);
         }
 
         private WeaponData GetData(WeaponType weaponType)
@@ -25,11 +30,11 @@ namespace BattleArena.Weapons
             switch (weaponType)
             {
                 case WeaponType.OneHandedSword:
-                    return _oneHandedSword;
+                    return _config.OneHandedSword;
                 case WeaponType.Bow:
-                    return _bow;
+                    return _config.Bow;
                 case WeaponType.MagicStaff:
-                    return _magicStaff;
+                    return _config.MagicStaff;
                 default:
                     throw new ArgumentException(nameof(weaponType));
             }
