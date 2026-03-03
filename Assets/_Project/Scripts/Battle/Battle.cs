@@ -17,7 +17,12 @@ namespace BattleArena
         private readonly ICharacterDestroyer _destroyer;
         private readonly List<Character> _inBattleCharacters = new();
 
-        public Battle(CharacterFactory characterFactory, WeaponFactory weaponFactory, Transform[] spawnPoints, ICharacterDestroyer characterDestroyer)
+        public Battle(
+            CharacterFactory characterFactory,
+            WeaponFactory weaponFactory,
+            Transform[] spawnPoints,
+            ICharacterDestroyer characterDestroyer
+            )
         {
             _characterFactory = characterFactory;
             _weaponFactory = weaponFactory;

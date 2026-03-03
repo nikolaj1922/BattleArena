@@ -22,7 +22,7 @@ namespace BattleArena.Weapons
 
         public Weapon Create(WeaponType weaponType)
         {
-            return UnityEngine.GameObject.Instantiate(GetData(weaponType).weapon);
+            return UnityEngine.Object.Instantiate(GetData(weaponType).weapon);
         }
 
         private WeaponData GetData(WeaponType weaponType)

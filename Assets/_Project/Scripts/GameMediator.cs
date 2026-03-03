@@ -1,9 +1,10 @@
 using System;
 using BattleArena.UI;
+using Zenject;
 
 namespace BattleArena
 {
-    public class GameMediator : IDisposable
+    public class GameMediator : IInitializable, IDisposable
     {
         private readonly Battle _battleService;
         private readonly RestartPanel _restartGamePanel;
@@ -17,13 +18,18 @@ namespace BattleArena
         public void Initialize()
         {
             _battleService.OnBattleEnded += EndBattle;
+            _restartGamePanel.RestartClicked += RestartBattle;
         }
 
-        public void Dispose() => _battleService.OnBattleEnded -= EndBattle;
+        public void Dispose()
+        {
+            _battleService.OnBattleEnded -= EndBattle;
+            _restartGamePanel.RestartClicked -= RestartBattle;
+        }
 
-        public void EndBattle(string winnerName) => _restartGamePanel.Show(winnerName);
+        private void EndBattle(string winnerName) => _restartGamePanel.Show(winnerName);
 
-        public void RestartBattle()
+        private void RestartBattle()
         {
             _battleService.RestartBattle();
             _restartGamePanel.Hide();

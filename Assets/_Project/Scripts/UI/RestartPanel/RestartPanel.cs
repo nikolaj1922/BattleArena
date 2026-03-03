@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,16 +7,14 @@ namespace BattleArena.UI
 {
     public class RestartPanel : MonoBehaviour
     {
+        public event Action RestartClicked;
+
         [SerializeField] private Button _restartButton;
         [SerializeField] private TextMeshProUGUI _winnerName;
 
-        private GameMediator _mediator;
+        private void OnEnable() => _restartButton.onClick.AddListener(OnRestartClicked);
 
-        private void OnEnable() => _restartButton.onClick.AddListener(_mediator.RestartBattle);
-
-        private void OnDisable() => _restartButton.onClick.RemoveListener(_mediator.RestartBattle);
-
-        public void Init(GameMediator mediator) => _mediator = mediator;
+        private void OnDisable() => _restartButton.onClick.RemoveListener(OnRestartClicked);
 
         public void Hide() => gameObject.SetActive(false);
 
@@ -24,5 +23,7 @@ namespace BattleArena.UI
             _winnerName.text = $"Winner is {winnerName}";
             gameObject.SetActive(true);
         }
+
+        private void OnRestartClicked() => RestartClicked?.Invoke();
     }
 }

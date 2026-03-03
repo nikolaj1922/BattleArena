@@ -25,7 +25,7 @@ namespace BattleArena.Characters
         public Character Create(CharacterType characterType, Vector3 pos)
         {
             CharacterData data = GetData(characterType);
-            Character character = UnityEngine.GameObject.Instantiate(data.prefab, pos, Quaternion.identity);
+            Character character = UnityEngine.Object.Instantiate(data.prefab, pos, Quaternion.identity);
 
             StateMachine stateMachine = new(
                 new IState[]

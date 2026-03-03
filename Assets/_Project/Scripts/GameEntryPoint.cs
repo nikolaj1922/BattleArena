@@ -1,31 +1,16 @@
-using BattleArena.UI;
-using UnityEngine;
+using Zenject;
 
 namespace BattleArena
 {
-    public class GameEntryPoint : MonoBehaviour
+    public class GameEntryPoint : IInitializable
     {
-        [SerializeField] private BattleInstaller _installer;
-        [SerializeField] private RestartPanel _restartGamePanel;
+        private readonly Battle _battle;
 
-        private GameMediator _mediator;
-
-        private void Awake()
+        public GameEntryPoint(Battle battle)
         {
-            Battle battleService = _installer.Compose();
-
-            RestartPanel restartPanelInstance = Instantiate(_restartGamePanel);
-
-            _mediator = new(battleService, restartPanelInstance);
-
-            restartPanelInstance.Init(_mediator);
-
-            battleService.StartBattle();
+            _battle = battle;
         }
 
-        public void OnDestroy()
-        {
-            _mediator?.Dispose();
-        }
+        public void Initialize() => _battle.StartBattle();
     }
 }
