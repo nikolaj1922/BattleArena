@@ -1,6 +1,7 @@
 using Zenject;
 using UnityEngine;
 using BattleArena.Weapons;
+using BattleArena.Battle;
 using BattleArena.Characters;
 using BattleArena.Characters.Config;
 using BattleArena.Weapons.Config;
@@ -23,7 +24,7 @@ namespace BattleArena
 
             Container.Bind<ICharacterDestroyer>().To<CharacterDestroyer>().AsSingle();
 
-            Container.Bind<Battle>().AsSingle().WithArguments(_spawnPoints);
+            Container.BindInterfacesAndSelfTo<BattleManager>().AsSingle().WithArguments(_spawnPoints);
         }
     }
 }

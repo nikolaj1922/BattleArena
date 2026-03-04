@@ -61,10 +61,7 @@ namespace BattleArena.Characters
             View.HealthBar.Bind(this);
         }
 
-        public void SetTarget(Character targetCharacter)
-        {
-            AttackTarget = targetCharacter;
-        }
+        public void SetTarget(Character targetCharacter) => AttackTarget = targetCharacter;
 
         public void SetWeapon(Weapon weapon)
         {
@@ -84,7 +81,6 @@ namespace BattleArena.Characters
 
             if (CurrentHealth <= 0)
                 OnDeath?.Invoke(this);
-
         }
 
         public bool CloseToAttackTarget() =>

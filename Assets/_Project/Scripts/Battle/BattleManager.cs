@@ -5,9 +5,9 @@ using BattleArena.Weapons;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BattleArena
+namespace BattleArena.Battle
 {
-    public class Battle
+    public class BattleManager : IRestartBattle
     {
         public event Action<string> OnBattleEnded;
 
@@ -17,7 +17,7 @@ namespace BattleArena
         private readonly ICharacterDestroyer _destroyer;
         private readonly List<Character> _inBattleCharacters = new();
 
-        public Battle(
+        public BattleManager(
             CharacterFactory characterFactory,
             WeaponFactory weaponFactory,
             Transform[] spawnPoints,

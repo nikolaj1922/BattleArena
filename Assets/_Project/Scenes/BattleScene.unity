@@ -10450,6 +10450,7 @@ GameObject:
   - component: {fileID: 1090734387}
   - component: {fileID: 1090734390}
   - component: {fileID: 1090734389}
+  - component: {fileID: 1090734391}
   m_Layer: 0
   m_Name: Scene Context
   m_TagString: Untagged
@@ -10473,6 +10474,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1090734390}
   - {fileID: 1090734389}
+  - {fileID: 1090734391}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -10517,7 +10519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589b4a3c45b4214fa0807100d4ea81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleArena.DI.EntryPointInstaller
-  _restartPanelPrefab: {fileID: 8094883281923151327, guid: 3fceb273e2b127049a4ebae6e0363916, type: 3}
 --- !u!114 &1090734390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10535,6 +10536,19 @@ MonoBehaviour:
   - {fileID: 244423108}
   _characterConfig: {fileID: 11400000, guid: f40333abc32d3524c970eb5166cead7c, type: 2}
   _weaponConfig: {fileID: 11400000, guid: 010cf299ac784bf4ab6c2397c3907940, type: 2}
+--- !u!114 &1090734391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090734386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c28808c4049074a90ce089098726a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.DI.RestartPanelInstaller
+  _restartPanelPrefab: {fileID: 3718016297417439087, guid: 3fceb273e2b127049a4ebae6e0363916, type: 3}
 --- !u!1 &1105494817
 GameObject:
   m_ObjectHideFlags: 0

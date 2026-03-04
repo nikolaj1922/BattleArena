@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2551276057023032255}
   - component: {fileID: 5930109140359080531}
   - component: {fileID: 737793285254702398}
-  - component: {fileID: 8094883281923151327}
+  - component: {fileID: 3718016297417439087}
   m_Layer: 5
   m_Name: Restart Panel Canvas
   m_TagString: Untagged
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8094883281923151327
+--- !u!114 &3718016297417439087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,9 +287,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5724476300478400637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bba4922ea1b69a49a7fa7872ab477da, type: 3}
+  m_Script: {fileID: 11500000, guid: f164594485128b94790d36753d962fa1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.UI.RestartPanel
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.UI.RestartPanel.RestartPanelView
   _restartButton: {fileID: 3376310356142575261}
   _winnerName: {fileID: 105767439865526950}
 --- !u!1 &6344369212385341019

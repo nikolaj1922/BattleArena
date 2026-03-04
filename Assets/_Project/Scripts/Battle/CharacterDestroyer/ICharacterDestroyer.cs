@@ -1,6 +1,6 @@
 using BattleArena.Characters;
 
-namespace BattleArena
+namespace BattleArena.Battle
 {
     public interface ICharacterDestroyer
     {

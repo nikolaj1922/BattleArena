@@ -1,12 +1,13 @@
 using Zenject;
+using BattleArena.Battle;
 
 namespace BattleArena
 {
     public class GameEntryPoint : IInitializable
     {
-        private readonly Battle _battle;
+        private readonly BattleManager _battle;
 
-        public GameEntryPoint(Battle battle)
+        public GameEntryPoint(BattleManager battle)
         {
             _battle = battle;
         }

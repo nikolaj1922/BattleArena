@@ -1,7 +1,7 @@
 using UnityEngine;
 using BattleArena.Characters;
 
-namespace BattleArena
+namespace BattleArena.Battle
 {
     public class CharacterDestroyer : ICharacterDestroyer
     {
