@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using System.Collections;
+using DG.Tweening;
 
 namespace BattleArena.UI
 {
@@ -11,34 +11,44 @@ namespace BattleArena.UI
         [SerializeField] private float _floatSpeed = 1f;
         [SerializeField] private float _duration = 1f;
 
-        private CanvasGroup _canvasGroup;
-
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
+        private Tween _animationTween;
 
         public void Init(string canvasText, Color color)
         {
             _text.text = canvasText;
             _text.color = color;
-            StartCoroutine(FloatingCoroutine());
+            PlayFloatingAnimation();
         }
 
-        private IEnumerator FloatingCoroutine()
+        private void PlayFloatingAnimation()
         {
-            float elapsed = 0f;
-            Vector3 startPos = transform.position;
-            Vector3 worldUp = Vector3.up;
-            while (elapsed < _duration)
-            {
-                transform.position = startPos + _floatSpeed * elapsed * worldUp;
-                _canvasGroup.alpha = 1f - (elapsed / _duration);
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
+            float startAlpha = 1f;
 
-            Destroy(gameObject);
+            Vector3 startPos = transform.position;
+            Vector3 endPos = startPos + _duration * _floatSpeed * Vector3.up;
+
+            Sequence seq = DOTween.Sequence();
+
+            seq.Join(transform.DOMove(endPos, _duration).SetEase(Ease.Linear));
+            seq.Join(DOTween.To(
+                () => startAlpha,
+                a =>
+                {
+                    startAlpha = a;
+                    Color c = _text.color;
+                    c.a = a;
+                    _text.color = c;
+                },
+                0f,
+                _duration
+            ));
+
+
+            seq.OnComplete(() => Destroy(gameObject));
+
+            _animationTween = seq;
         }
+
+        private void OnDisable() => _animationTween?.Kill();
     }
 }
