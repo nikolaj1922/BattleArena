@@ -1,44 +1,35 @@
 using System;
 using Zenject;
-using BattleArena.Battle;
 
 namespace BattleArena.UI.RestartPanel
 {
     public class RestartPanelPresenter : IInitializable, IDisposable
     {
-        private readonly IRestartPanelView _view;
-        private readonly IRestartPanelModel _model;
-        private readonly IRestartBattle _battle;
+        private readonly RestartPanelView _view;
+        private readonly RestartPanelModel _model;
 
-        public RestartPanelPresenter(IRestartPanelView view, IRestartPanelModel model, IRestartBattle battle)
+        public RestartPanelPresenter(RestartPanelView view, RestartPanelModel model)
         {
             _view = view;
             _model = model;
-            _battle = battle;
         }
 
         public void Initialize()
         {
-            _view.RestartClicked += RestartBattle;
-            _battle.OnBattleEnded += ShowWinner;
+            _view.OnRestartClicked += OnRestartClicked;
+            _model.OnBattleEnded += _view.Show;
         }
 
         public void Dispose()
         {
-            _view.RestartClicked -= RestartBattle;
-            _battle.OnBattleEnded -= ShowWinner;
+            _view.OnRestartClicked -= OnRestartClicked;
+            _model.OnBattleEnded -= _view.Show;
         }
 
-        private void ShowWinner(string winnerName)
-        {
-            _model.SetWinnerName(winnerName);
-            _view.Show(winnerName);
-        }
 
-        private void RestartBattle()
+        private void OnRestartClicked()
         {
-            _battle.RestartBattle();
-            _model.SetWinnerName(null);
+            _model.RestartBattle();
             _view.Hide();
         }
     }

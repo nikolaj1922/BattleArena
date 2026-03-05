@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 namespace BattleArena.UI.RestartPanel
 {
-    public class RestartPanelView : MonoBehaviour, IRestartPanelView
+    public class RestartPanelView : MonoBehaviour
     {
-        public event Action RestartClicked;
+        public event Action OnRestartClicked;
 
         [SerializeField] private Button _restartButton;
         [SerializeField] private TextMeshProUGUI _winnerName;
 
-        private void OnEnable() => _restartButton.onClick.AddListener(OnRestartClicked);
+        private void OnEnable() => _restartButton.onClick.AddListener(RestartClicked);
 
-        private void OnDisable() => _restartButton.onClick.RemoveListener(OnRestartClicked);
+        private void OnDisable() => _restartButton.onClick.RemoveListener(RestartClicked);
 
         public void Hide() => gameObject.SetActive(false);
 
@@ -24,6 +24,6 @@ namespace BattleArena.UI.RestartPanel
             gameObject.SetActive(true);
         }
 
-        private void OnRestartClicked() => RestartClicked?.Invoke();
+        private void RestartClicked() => OnRestartClicked?.Invoke();
     }
 }

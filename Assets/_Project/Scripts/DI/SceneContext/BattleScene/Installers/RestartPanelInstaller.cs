@@ -11,7 +11,7 @@ namespace BattleArena.DI.SceneContext
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<RestartPanelPresenter>().AsSingle();
-            Container.Bind<IRestartPanelModel>().To<RestartPanelModel>().AsSingle();
+            Container.Bind<RestartPanelModel>().AsSingle();
             Container
                 .BindInterfacesAndSelfTo<RestartPanelView>()
                 .FromComponentInNewPrefab(_restartPanelPrefab)
