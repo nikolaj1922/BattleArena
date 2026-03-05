@@ -13,7 +13,7 @@ namespace BattleArena.DI.CharacterContext
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<HealthBarPresenter>().AsSingle().WithArguments(_character);
-            Container.Bind<IHealthBarModel>().To<HealthBarModel>().AsSingle();
+            Container.Bind<HealthBarModel>().AsSingle();
             Container
                 .BindInterfacesAndSelfTo<HealthBarView>()
                 .FromInstance(_healthBarView)

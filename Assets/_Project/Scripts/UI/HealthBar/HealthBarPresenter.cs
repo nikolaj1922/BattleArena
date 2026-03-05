@@ -6,13 +6,12 @@ namespace BattleArena.UI.HealthBar
 {
     public class HealthBarPresenter : IInitializable, IDisposable
     {
-        private readonly IHealthBarModel _model;
-        private readonly IHealthBarView _view;
+        private readonly HealthBarModel _model;
+        private readonly HealthBarView _view;
         private readonly Character _character;
-
         private bool _maxHealthInitialized;
 
-        public HealthBarPresenter(IHealthBarModel model, IHealthBarView view, Character character)
+        public HealthBarPresenter(HealthBarModel model, HealthBarView view, Character character)
         {
             _model = model;
             _view = view;

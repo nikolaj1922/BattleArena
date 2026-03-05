@@ -2,7 +2,7 @@ using System;
 
 namespace BattleArena.UI.HealthBar
 {
-    public class HealthBarModel : IHealthBarModel
+    public class HealthBarModel
     {
         public event Action<float, float> OnHealthChanged;
         public event Action<float> OnMaxHealthChanged;

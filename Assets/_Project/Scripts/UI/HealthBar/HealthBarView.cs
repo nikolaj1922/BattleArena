@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace BattleArena.UI.HealthBar
 {
-    public class HealthBarView : MonoBehaviour, IHealthBarView
+    public class HealthBarView : MonoBehaviour
     {
         [SerializeField] private Image _healthBar;
         [SerializeField] private TextMeshProUGUI _maxHealthText;
