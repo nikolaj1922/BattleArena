@@ -1,5 +1,8 @@
+using System;
+using System.Threading;
 using UnityEngine;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+
 
 namespace BattleArena.Characters.Managers
 {
@@ -7,7 +10,7 @@ namespace BattleArena.Characters.Managers
     public class CharacterLocomotion : MonoBehaviour
     {
         private Character _character;
-        private Coroutine _moveRoutine;
+        private CancellationTokenSource _moveCts;
 
         private void Awake()
         {
@@ -16,22 +19,51 @@ namespace BattleArena.Characters.Managers
 
         public void MoveToTarget()
         {
-            _moveRoutine = StartCoroutine(MoveToTargetCoroutine(_character.AttackTarget.transform, _character.Weapon.Data.attackRange, _character.CharacterData.moveSpeed));
+            StopMove();
+            MoveToTargetAsync().Forget();
         }
 
         public void StopMove()
         {
-            if (_moveRoutine != null)
+            if (_moveCts != null)
             {
-                StopCoroutine(_moveRoutine);
-                _moveRoutine = null;
+                _moveCts.Cancel();
+                _moveCts.Dispose();
+                _moveCts = null;
             }
         }
 
-        private IEnumerator MoveToTargetCoroutine(Transform target, float attackRange, float moveSpeed)
+        private async UniTask MoveToTargetAsync()
+        {
+            _moveCts = new CancellationTokenSource();
+            var token = _moveCts.Token;
+
+            try
+            {
+                await MoveToTargetTaskAsync(
+                    _character.AttackTarget.transform,
+                    _character.Weapon.Data.attackRange,
+                    _character.CharacterData.moveSpeed,
+                    token
+                );
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
+        }
+
+        private async UniTask MoveToTargetTaskAsync(
+            Transform target,
+            float attackRange,
+            float moveSpeed,
+            CancellationToken cancellationToken
+            )
         {
             while (Vector3.Distance(transform.position, target.position) > attackRange)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+
                 Vector3 direction = (_character.AttackTarget.transform.position - transform.position).normalized;
                 direction.y = 0;
 
@@ -45,8 +77,9 @@ namespace BattleArena.Characters.Managers
 
                 _character.Rb.MovePosition(newPosition);
 
-                yield return null;
+                await UniTask.Yield(PlayerLoopTiming.FixedUpdate, cancellationToken);
             }
+
         }
     }
 }
