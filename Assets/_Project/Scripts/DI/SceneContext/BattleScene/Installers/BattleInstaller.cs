@@ -6,7 +6,7 @@ using BattleArena.Characters;
 using BattleArena.Characters.Config;
 using BattleArena.Weapons.Config;
 
-namespace BattleArena
+namespace BattleArena.DI.SceneContext
 {
     public class BattleInstaller : MonoInstaller
     {

@@ -32,7 +32,7 @@ namespace BattleArena.UI
             Vector3 worldUp = Vector3.up;
             while (elapsed < _duration)
             {
-                transform.position = startPos + worldUp * _floatSpeed * elapsed;
+                transform.position = startPos + _floatSpeed * elapsed * worldUp;
                 _canvasGroup.alpha = 1f - (elapsed / _duration);
                 elapsed += Time.deltaTime;
                 yield return null;

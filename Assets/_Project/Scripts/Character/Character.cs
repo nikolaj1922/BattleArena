@@ -1,8 +1,10 @@
 using System;
+using Zenject;
 using UnityEngine;
-using BattleArena.Characters.Managers;
-using BattleArena.Weapons;
 using BattleArena.FSM;
+using BattleArena.Weapons;
+using BattleArena.UI.HealthBar;
+using BattleArena.Characters.Managers;
 
 namespace BattleArena.Characters
 {
@@ -58,7 +60,7 @@ namespace BattleArena.Characters
             CurrentHealth = characterData.health;
             _stateMachine = stateMachine;
 
-            View.HealthBar.Bind(this);
+            OnHealthChanged?.Invoke(characterData.health, characterData.health);
         }
 
         public void SetTarget(Character targetCharacter) => AttackTarget = targetCharacter;

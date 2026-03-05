@@ -163,8 +163,8 @@ GameObject:
   - component: {fileID: 4975430855520922968}
   - component: {fileID: 8181670070681712116}
   - component: {fileID: 2271686341883164020}
-  - component: {fileID: 81757761908879749}
   - component: {fileID: 9127712997241281256}
+  - component: {fileID: 3108530614639106347}
   m_Layer: 5
   m_Name: Health Bar Canvas
   m_TagString: Untagged
@@ -239,21 +239,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &81757761908879749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918403428655596916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433b816abba83a142a32473fa45a05cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthBar
-  _healthBar: {fileID: 5438654299752282379}
-  _maxHealthText: {fileID: 2941077532696258093}
-  _currentHealthText: {fileID: 9140174043830896066}
 --- !u!114 &9127712997241281256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +251,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd9d0a4abcd7484c8832eaf16cc50b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
+--- !u!114 &3108530614639106347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918403428655596916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0886964db11d5ab4d93c96bb8ca61a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleArena.UI.HealthBar.HealthBarView
+  _healthBar: {fileID: 5438654299752282379}
+  _maxHealthText: {fileID: 2941077532696258093}
+  _currentHealthText: {fileID: 9140174043830896066}
 --- !u!1 &1417242290399612274
 GameObject:
   m_ObjectHideFlags: 0

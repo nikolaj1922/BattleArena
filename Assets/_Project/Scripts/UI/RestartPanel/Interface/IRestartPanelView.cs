@@ -6,6 +6,6 @@ namespace BattleArena.UI.RestartPanel
     {
         event Action RestartClicked;
         void Hide();
-        void Show();
+        void Show(string winnerName);
     }
 }

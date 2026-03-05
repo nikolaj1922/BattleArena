@@ -32,14 +32,14 @@ namespace BattleArena.UI.RestartPanel
         private void ShowWinner(string winnerName)
         {
             _model.SetWinnerName(winnerName);
-            _view.Show();
+            _view.Show(winnerName);
         }
 
         private void RestartBattle()
         {
             _battle.RestartBattle();
-            _view.Hide();
             _model.SetWinnerName(null);
+            _view.Hide();
         }
     }
 }

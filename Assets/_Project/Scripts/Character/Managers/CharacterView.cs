@@ -15,8 +15,6 @@ namespace BattleArena.Characters.Managers
         private CharacterEffect _characterEffect;
         private IStatusEffectVisitor _statusEffectVisitor;
 
-        [field: SerializeField] public HealthBar HealthBar { get; private set; }
-
         private void Awake()
         {
             _characterEffect = GetComponent<CharacterEffect>();

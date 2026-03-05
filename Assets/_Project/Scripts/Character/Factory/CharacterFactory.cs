@@ -3,6 +3,7 @@ using UnityEngine;
 using BattleArena.FSM;
 using BattleArena.Characters.States;
 using BattleArena.Characters.Config;
+using Zenject;
 
 namespace BattleArena.Characters
 {
@@ -16,16 +17,23 @@ namespace BattleArena.Characters
     public class CharacterFactory
     {
         private readonly CharacterConfig _config;
+        private readonly DiContainer _container;
 
-        public CharacterFactory(CharacterConfig config)
+        public CharacterFactory(CharacterConfig config, DiContainer container)
         {
             _config = config;
+            _container = container;
         }
 
         public Character Create(CharacterType characterType, Vector3 pos)
         {
             CharacterData data = GetData(characterType);
-            Character character = UnityEngine.Object.Instantiate(data.prefab, pos, Quaternion.identity);
+            Character character = _container.InstantiatePrefabForComponent<Character>(
+                data.prefab,
+                pos,
+                Quaternion.identity,
+                null
+            );
 
             StateMachine stateMachine = new(
                 new IState[]

@@ -2,7 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace BattleArena.UI.RestartPanel
 {
@@ -12,20 +11,16 @@ namespace BattleArena.UI.RestartPanel
 
         [SerializeField] private Button _restartButton;
         [SerializeField] private TextMeshProUGUI _winnerName;
-        private IRestartPanelModel _model;
 
         private void OnEnable() => _restartButton.onClick.AddListener(OnRestartClicked);
 
         private void OnDisable() => _restartButton.onClick.RemoveListener(OnRestartClicked);
 
-        [Inject]
-        public void Construct(IRestartPanelModel model) => _model = model;
-
         public void Hide() => gameObject.SetActive(false);
 
-        public void Show()
+        public void Show(string winnerName)
         {
-            _winnerName.text = $"Winner is {_model.WinnerName}";
+            _winnerName.text = $"Winner is {winnerName}";
             gameObject.SetActive(true);
         }
 

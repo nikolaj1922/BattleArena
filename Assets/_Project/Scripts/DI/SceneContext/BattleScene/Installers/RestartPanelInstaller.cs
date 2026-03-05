@@ -2,7 +2,7 @@ using Zenject;
 using UnityEngine;
 using BattleArena.UI.RestartPanel;
 
-namespace BattleArena.DI
+namespace BattleArena.DI.SceneContext
 {
     public class RestartPanelInstaller : MonoInstaller
     {
