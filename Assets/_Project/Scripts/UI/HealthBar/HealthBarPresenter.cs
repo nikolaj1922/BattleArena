@@ -37,7 +37,12 @@ namespace BattleArena.UI.HealthBar
             }
         }
 
-        public void Dispose() => _character.OnHealthChanged -= ChangeHealth;
+        public void Dispose()
+        {
+            _character.OnHealthChanged -= ChangeHealth;
+            _model.OnHealthChanged -= _view.UpdateCurrentHealthView;
+            _model.OnMaxHealthChanged -= _view.SetMaxHealthView;
+        }
 
         private void SetMaxHealth(float maxHealth) => _model.SetMaxHealth(maxHealth);
     }

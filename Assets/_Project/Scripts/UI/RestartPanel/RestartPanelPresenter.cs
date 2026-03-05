@@ -26,7 +26,6 @@ namespace BattleArena.UI.RestartPanel
             _model.OnBattleEnded -= _view.Show;
         }
 
-
         private void OnRestartClicked()
         {
             _model.RestartBattle();
