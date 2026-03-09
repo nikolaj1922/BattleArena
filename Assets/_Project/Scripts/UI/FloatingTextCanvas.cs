@@ -22,7 +22,6 @@ namespace BattleArena.UI
 
         private void PlayFloatingAnimation()
         {
-            float startAlpha = 1f;
 
             Vector3 startPos = transform.position;
             Vector3 endPos = startPos + _duration * _floatSpeed * Vector3.up;
@@ -30,19 +29,7 @@ namespace BattleArena.UI
             Sequence sequence = DOTween.Sequence();
 
             sequence.Join(transform.DOMove(endPos, _duration).SetEase(Ease.Linear));
-            sequence.Join(DOTween.To(
-                () => startAlpha,
-                a =>
-                {
-                    startAlpha = a;
-                    Color c = _text.color;
-                    c.a = a;
-                    _text.color = c;
-                },
-                0f,
-                _duration
-            ));
-
+            sequence.Join(_text.DOFade(0f, _duration).Play());
 
             sequence.OnComplete(() => Destroy(gameObject));
 
