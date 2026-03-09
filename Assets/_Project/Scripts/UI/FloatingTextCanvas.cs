@@ -27,10 +27,10 @@ namespace BattleArena.UI
             Vector3 startPos = transform.position;
             Vector3 endPos = startPos + _duration * _floatSpeed * Vector3.up;
 
-            Sequence seq = DOTween.Sequence();
+            Sequence sequence = DOTween.Sequence();
 
-            seq.Join(transform.DOMove(endPos, _duration).SetEase(Ease.Linear));
-            seq.Join(DOTween.To(
+            sequence.Join(transform.DOMove(endPos, _duration).SetEase(Ease.Linear));
+            sequence.Join(DOTween.To(
                 () => startAlpha,
                 a =>
                 {
@@ -44,9 +44,9 @@ namespace BattleArena.UI
             ));
 
 
-            seq.OnComplete(() => Destroy(gameObject));
+            sequence.OnComplete(() => Destroy(gameObject));
 
-            _animationTween = seq;
+            _animationTween = sequence;
         }
 
         private void OnDisable() => _animationTween?.Kill();
