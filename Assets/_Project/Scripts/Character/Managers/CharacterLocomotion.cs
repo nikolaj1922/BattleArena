@@ -1,8 +1,6 @@
-using System;
 using System.Threading;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-
 
 namespace BattleArena.Characters.Managers
 {
@@ -38,19 +36,12 @@ namespace BattleArena.Characters.Managers
             _moveCts = new CancellationTokenSource();
             var token = _moveCts.Token;
 
-            try
-            {
-                await MoveToTargetTaskAsync(
-                    _character.AttackTarget.transform,
-                    _character.Weapon.Data.attackRange,
-                    _character.CharacterData.moveSpeed,
-                    token
-                );
-            }
-            catch (OperationCanceledException)
-            {
-
-            }
+            await MoveToTargetTaskAsync(
+                _character.AttackTarget.transform,
+                _character.Weapon.Data.attackRange,
+                _character.CharacterData.moveSpeed,
+                token
+            );
         }
 
         private async UniTask MoveToTargetTaskAsync(
@@ -80,6 +71,11 @@ namespace BattleArena.Characters.Managers
                 await UniTask.Yield(PlayerLoopTiming.FixedUpdate, cancellationToken);
             }
 
+        }
+
+        private void OnDestroy()
+        {
+            StopMove();
         }
     }
 }
