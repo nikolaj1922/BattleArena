@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
-namespace BattleArena.UI
+namespace BattleArena.UI.FloatingText
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class FloatingTextCanvas : MonoBehaviour
@@ -13,14 +14,14 @@ namespace BattleArena.UI
 
         private Tween _animationTween;
 
-        public void Init(string canvasText, Color color)
+        public void Init(string canvasText, Color color, Action OnAnimationEnd = null)
         {
             _text.text = canvasText;
             _text.color = color;
-            PlayFloatingAnimation();
+            PlayFloatingAnimation(OnAnimationEnd);
         }
 
-        private void PlayFloatingAnimation()
+        private void PlayFloatingAnimation(Action OnAnimationEnd = null)
         {
 
             Vector3 startPos = transform.position;
@@ -31,7 +32,7 @@ namespace BattleArena.UI
             sequence.Join(transform.DOMove(endPos, _duration).SetEase(Ease.Linear));
             sequence.Join(_text.DOFade(0f, _duration).Play());
 
-            sequence.OnComplete(() => Destroy(gameObject));
+            sequence.OnComplete(() => OnAnimationEnd?.Invoke());
 
             _animationTween = sequence;
         }

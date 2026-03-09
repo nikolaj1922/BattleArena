@@ -1,7 +1,9 @@
 using UnityEngine;
-using BattleArena.UI;
 using BattleArena.StatusEffects;
 using BattleArena.StatusEffects.Visitors;
+using BattleArena.UI.FloatingText;
+using BattleArena.Infrastructure.ObjectPool;
+using Zenject;
 
 namespace BattleArena.Characters.Managers
 {
@@ -9,8 +11,8 @@ namespace BattleArena.Characters.Managers
     public class CharacterView : MonoBehaviour
     {
         [Header("Float text")]
-        [SerializeField] private Transform floatTextStartPos;
-        [SerializeField] private Canvas floatTextPrefab;
+        [SerializeField] private Transform _floatTextStartPos;
+        private ObjectPool<FloatingTextCanvas> _floatTextPool;
 
         private CharacterEffect _characterEffect;
         private IStatusEffectVisitor _statusEffectVisitor;
@@ -23,13 +25,19 @@ namespace BattleArena.Characters.Managers
             _statusEffectVisitor = new StatusEffectViewVisitor(this);
         }
 
+        [Inject]
+        public void Construct(ObjectPool<FloatingTextCanvas> floatTextPool)
+        {
+            _floatTextPool = floatTextPool;
+        }
+
         private void OnDestroy() => _characterEffect.OnEffectAdded -= HandleEffectAdded;
 
         public void ShowFloatingText(string text, Color color)
         {
-            Canvas canvasObj = Instantiate(floatTextPrefab, floatTextStartPos);
-            canvasObj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            canvasObj.GetComponent<FloatingTextCanvas>().Init(text, color);
+            FloatingTextCanvas canvasObj = _floatTextPool.Get();
+            canvasObj.transform.SetLocalPositionAndRotation(_floatTextStartPos.position, Quaternion.identity);
+            canvasObj.GetComponent<FloatingTextCanvas>().Init(text, color, OnAnimationEnd: () => _floatTextPool.Release(canvasObj));
         }
 
         private void HandleEffectAdded(StatusEffect effect) => effect.Accept(_statusEffectVisitor);

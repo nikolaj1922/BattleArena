@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using BattleArena.Characters;
+using BattleArena.Infrastructure.ObjectPool;
+using BattleArena.UI.FloatingText;
 using BattleArena.Weapons;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,9 +13,9 @@ namespace BattleArena.Battle
     {
         public event Action<string> OnBattleEnded;
 
-        private readonly CharacterFactory _characterFactory;
-        private readonly WeaponFactory _weaponFactory;
         private readonly Transform[] _spawnPoints;
+        private readonly WeaponFactory _weaponFactory;
+        private readonly CharacterFactory _characterFactory;
         private readonly ICharacterDestroyer _destroyer;
         private readonly List<Character> _inBattleCharacters = new();
 

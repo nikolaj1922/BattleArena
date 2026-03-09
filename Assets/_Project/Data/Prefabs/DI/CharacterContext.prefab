@@ -63,3 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b80a13ed88ff944d90936509e5d7525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleArena.DI.CharacterInstaller
+  _character: {fileID: 0}
+  _healthBarView: {fileID: 0}
+  _floatTextPrefab: {fileID: 7932510040652240617, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}

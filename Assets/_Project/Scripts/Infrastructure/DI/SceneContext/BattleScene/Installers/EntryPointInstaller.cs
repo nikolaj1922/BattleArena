@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace BattleArena.DI.SceneContext
+namespace BattleArena.Infrastructure.DI.SceneContext
 {
     public class EntryPointInstaller : MonoInstaller
     {

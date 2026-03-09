@@ -674,8 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9dd9eff6d22c343a435e0674446b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterViewManager
-  floatTextStartPos: {fileID: 5433981194211349404}
-  floatTextPrefab: {fileID: 6496643416734674080, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}
+  _floatTextStartPos: {fileID: 5433981194211349404}
+  _floatTextPrefab: {fileID: 7932510040652240617, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}
 --- !u!1 &2088127673469472721
 GameObject:
   m_ObjectHideFlags: 0

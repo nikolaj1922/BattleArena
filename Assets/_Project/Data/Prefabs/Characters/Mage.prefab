@@ -1610,8 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9dd9eff6d22c343a435e0674446b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterViewManager
-  floatTextStartPos: {fileID: 305247285364780628}
-  floatTextPrefab: {fileID: 6496643416734674080, guid: 1cadd89cca14f4d42a781dacbb797680, type: 3}
+  _floatTextStartPos: {fileID: 305247285364780628}
 --- !u!1 &7006603952392247643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2962456207357996449, guid: c9c5231999cab624a9188ec3d56077f5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962456207357996449, guid: c9c5231999cab624a9188ec3d56077f5, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2047,7 +2046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663413212411566619, guid: c9c5231999cab624a9188ec3d56077f5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 6.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6663413212411566619, guid: c9c5231999cab624a9188ec3d56077f5, type: 3}
       propertyPath: m_SizeDelta.y
